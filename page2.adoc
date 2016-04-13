@@ -71,14 +71,14 @@ Il est possible de valider la syntaxe du fichier .travis.yml en installant un ut
 
 Voici à quoi ressemble un fichier .travis.yml.
 
-image::f1travis.png
-image::f2travis.png
+image::f1travis.png[]
+image::f2travis.png[]
 
 === Fichier de script lancé par Travis
 
 C'est le fichier update-doc.sh.
 
-image::fi3.png
-image::f4.png
+image::fi3.png[]
+image::f4.png[]
 
 link:integrationContinue.html[Formation à Travis]
