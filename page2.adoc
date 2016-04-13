@@ -82,3 +82,6 @@ image::fi3.png[]
 image::f4.png[]
 
 link:integrationContinue.html[Formation à Travis]
+
+
+link:faq.adoc[PREVIOUS PAGE]   link:page3.adoc[NEXT PAGE]
