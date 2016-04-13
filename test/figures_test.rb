@@ -9,7 +9,7 @@ describe File do
 end
 re = Regexp.new("\.html$") # asciidoc source file
 
-dir = Dir.new('/home/travis/build/kacimimoghite/IntegrationContinue/Html')
+dir = Dir.new('/home/travis/build/Dorlige/IntegrationContinue/Html')
 dir.each  {|fn| 
     if ( fn =~ re ) then
         print "asciidoc source : " + fn + "\n"
@@ -20,7 +20,7 @@ dir.each  {|fn|
             content = f.read
             paths = content.scan(/<img src="([^"]*)"/)
         }
-        imagesDir='/home/travis/build/kacimimoghite/IntegrationContinue/images'
+        imagesDir='/home/travis/build/Dorlige/IntegrationContinue/images'
         # test that path is a file
         paths.flatten.each {|path|
           describe File do
