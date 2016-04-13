@@ -12,3 +12,13 @@
 image::logo.jpg[]  
 
 == Qu'est ce que Travis?
+
+Lorsque vous visitez des projets sur GitHub, vous avez certainement déjà apperçu des badges dans le README comme « build passing ». Il s’agit d’un service proposé par
+Travis-CI. Travis CI est un logiciel libre et un service en ligne utilisé pour compiler, tester et déployer le code source des logiciels développés, notamment en lien avec le
+service d'hébergement du code source GitHub. 
+
+image::travis-ci-process.png[]
+
+== Configuration de Travis pour l'intégration continue
+
+
