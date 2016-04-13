@@ -71,7 +71,7 @@ image::f7.png[]
 
 === Résultat sur GitHub pages
 
-image:: f6.png[]
+image::f6.png[]
 
 
 link:deploiement-sur-github.pdf[Article sur le déploiement]
