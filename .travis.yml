@@ -3,8 +3,8 @@ install:
 - gem install coderay
 - gem install link-checker
 script:
-#- asciidoctor faq.adoc -o Html/faq.html
-- asciidoctor -a icons -a linkcss! -a numbered -a imagesdir=images main.asc -o Html/faq.html
+#- asciidoctor faq.adoc -o html/faq.html
+- asciidoctor -a icons -a linkcss! -a numbered -a imagesdir=images main.asc -o html/faq.html
 - rake check_links
 - rake test
 
