@@ -11,7 +11,7 @@ script:
 
 env:
   global:
-    - GH_REF: Dorlige/integrationContinue.git
+    - GH_REF: Dorlige/ProjetIntegrationContinue.git
     - secure: kZVP0sLlkL6TVR8CK7YGpw+gPMyE1+jUrhxbj0oNdOH6rIZ26zJxkWubH8ezizl/qi++b45QPczhKSnfXxGe7nZXGC/C9M+Ts+DFdnqoR2gsOo9wYv91V30Sy3ALwHWLkTuAPRdNKqrWMPEMzSFrfll1mXgp8PgVfycben/J+qOP6bCIuv0VPxzVgrztgtAY+jF1uY7p3qdvsuqqLVQUwGgV7ko5vg5yheOj0FHJWe/hIRY00m5UkQk2cXWN3WbqB2iyPSNbRFT6jfDpvcYBzx/h8DfsbJLdpPSlGQYbeCtqzP1UWAwUC/tR+zO9e4HgSfkc35iQvripB/+Op6KVudwrkxKmUDpjqZRBSqjHMo4Qkd/CLkFTx59eUeMcz7nWUkPXdd2wpjvOoY+BL/nfHALHaSnUxkcIXh55ESMebjwkp0n4VgiHAvMrcR01c51XKknBjTS9pFkfH0YuXpGc1Dle6ZTdyUbBDJnXAC608vAcAGllrXHUCgR38vlaKZn31qMU73SyiGK1f6x6otmbLsMP5VKb0xOxfS0lpSZeRRNbA4nxc9+UVTi7wllftBsN6Ubwpsx9U3JCLvA95KQV7gfN5Ppg6QhdHb6J29Wr6fCJpzmwSNRxwKMGygN6sh32ff67TKT5GTB/LMKZNywMMwyPys5GrXbn9UE1qWetoeQ=
 after_success: 
 - bash monscript.sh
