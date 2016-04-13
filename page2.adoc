@@ -42,3 +42,43 @@ Lors du git push (après un git commit bien sûr), Travis va générer une machi
 passé. 
 
 image::configTravis.png[]
+
+
+== Connecter Github et Travis
+
+Pour ne pas avoir à préciser les mots de passe en clair dans vos scripts, il est possible d’indiquer les éléments de connexions de manière crypté. Ainsi il faut : 
+
+* *Associer un token à votre dépôt sous Github*(https://help.github.com/articles/creating-an-access-token-for-command-line-use/[explication ici])
+
+* *Installer travis*
+
+gem install travis 
+
+
+* *Crypter (et ajouter au fichier .travis.yml en même temps) votre token*
+
+*travis encrypt MY_SECRET_ENV=super_secret --add env.matrix*
+
+Il est possible de valider la syntaxe du fichier .travis.yml en installant un utilitaire :
+
+*gem install travis-lint*
+*travis-lint*
+
+
+== Quelques exemples de fichiers
+
+=== Fichier Travis
+
+Voici à quoi ressemble un fichier .travis.yml.
+
+image::f1travis.png
+image::f2travis.png
+
+=== Fichier de script lancé par Travis
+
+C'est le fichier update-doc.sh.
+
+image::fi3.png
+image::f4.png
+
+link:integrationContinue.html[Formation à Travis]
