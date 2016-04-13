@@ -21,4 +21,20 @@ image::travis-ci-process.png[]
 
 == Configuration de Travis pour l'intégration continue
 
+* Se connecter sur Travis avec les identifiants de Github.
+Il est possible de se connecter sur Travis CI en passant par le site Github. Pour cela, il suffit de se connecter sur Github avec ses identifiants et dans une autre fenêtre,
+ouvrir Travis CI. 
 
+* Configurer les dépôts à "intégrer" de manière continue.
+En se connectant sur Travis avec les identifiants de GitHub, les projets ou dépôts se trouvant dans GitHub figurent aussi dans Travis. Pour les configurer à intégrer de
+manière continue, il suffit de cliquer sur l'icône " +" qui se trouve près de l'expression "My repositories". Une fois cliqué, dans la page qui apparait, mettre le dépôt ou
+projet voulu à valider. 
+
+* Ajouter un fichier .travis.yml à la racine du dépôt.
+Il faut penser à l'ajouter avec git add. 
+
+* Génération de la machine virtuelle.
+Lors du git push (après un git commit bien sûr), Travis va générer une machine virtuelle qui va exécuter le script et indiquer un succès ( passing.svg ) si tout c’est bien
+passé. 
+
+image::configTravis.png[]
