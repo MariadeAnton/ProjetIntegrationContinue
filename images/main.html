@@ -1,0 +1,2455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="Asciidoctor 0.1.4">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UML et la modélisation</title>
+<style>
+/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
+audio, canvas, video { display: inline-block; }
+audio:not([controls]) { display: none; height: 0; }
+[hidden] { display: none; }
+html { background: #fff; color: #000; font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+a:focus { outline: thin dotted; }
+a:active, a:hover { outline: 0; }
+h1 { font-size: 2em; margin: 0.67em 0; }
+abbr[title] { border-bottom: 1px dotted; }
+b, strong { font-weight: bold; }
+dfn { font-style: italic; }
+hr { -moz-box-sizing: content-box; box-sizing: content-box; height: 0; }
+mark { background: #ff0; color: #000; }
+code, kbd, pre, samp { font-family: monospace, serif; font-size: 1em; }
+pre { white-space: pre-wrap; }
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+small { font-size: 80%; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+img { border: 0; }
+svg:not(:root) { overflow: hidden; }
+figure { margin: 0; }
+fieldset { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
+legend { border: 0; padding: 0; }
+button, input, select, textarea { font-family: inherit; font-size: 100%; margin: 0; }
+button, input { line-height: normal; }
+button, select { text-transform: none; }
+button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; cursor: pointer; }
+button[disabled], html input[disabled] { cursor: default; }
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+textarea { overflow: auto; vertical-align: top; }
+table { border-collapse: collapse; border-spacing: 0; }
+*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+html, body { font-size: 100%; }
+body { background: white; color: #222222; padding: 0; margin: 0; font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; line-height: 1; position: relative; cursor: auto; }
+a:hover { cursor: pointer; }
+a:focus { outline: none; }
+img, object, embed { max-width: 100%; height: auto; }
+object, embed { height: 100%; }
+img { -ms-interpolation-mode: bicubic; }
+#map_canvas img, #map_canvas embed, #map_canvas object, .map_canvas img, .map_canvas embed, .map_canvas object { max-width: none !important; }
+.left { float: left !important; }
+.right { float: right !important; }
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+.text-center { text-align: center !important; }
+.text-justify { text-align: justify !important; }
+.hide { display: none; }
+.antialiased, body { -webkit-font-smoothing: antialiased; }
+img { display: inline-block; vertical-align: middle; }
+textarea { height: auto; min-height: 50px; }
+select { width: 100%; }
+p.lead, .paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { font-size: 1.21875em; line-height: 1.6; }
+.subheader, #content #toctitle, .admonitionblock td.content > .title, .exampleblock > .title, .imageblock > .title, .videoblock > .title, .listingblock > .title, .literalblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, .sidebarblock > .title, .tableblock > .title, .verseblock > .title, .dlist > .title, .olist > .title, .ulist > .title, .qlist > .title, .hdlist > .title, .tableblock > caption { line-height: 1.4; color: #7a2518; font-weight: 300; margin-top: 0.2em; margin-bottom: 0.5em; }
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6, pre, form, p, blockquote, th, td { margin: 0; padding: 0; direction: ltr; }
+a { color: #005498; text-decoration: underline; line-height: inherit; }
+a:hover, a:focus { color: #00467f; }
+a img { border: none; }
+p { font-family: inherit; font-weight: normal; font-size: 1em; line-height: 1.6; margin-bottom: 1.25em; text-rendering: optimizeLegibility; }
+p aside { font-size: 0.875em; line-height: 1.35; font-style: italic; }
+h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { font-family: Georgia, "URW Bookman L", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; color: #ba3925; text-rendering: optimizeLegibility; margin-top: 1em; margin-bottom: 0.5em; line-height: 1.2125em; }
+h1 small, h2 small, h3 small, #toctitle small, .sidebarblock > .content > .title small, h4 small, h5 small, h6 small { font-size: 60%; color: #e99b8f; line-height: 0; }
+h1 { font-size: 2.125em; }
+h2 { font-size: 1.6875em; }
+h3, #toctitle, .sidebarblock > .content > .title { font-size: 1.375em; }
+h4 { font-size: 1.125em; }
+h5 { font-size: 1.125em; }
+h6 { font-size: 1em; }
+hr { border: solid #dddddd; border-width: 1px 0 0; clear: both; margin: 1.25em 0 1.1875em; height: 0; }
+em, i { font-style: italic; line-height: inherit; }
+strong, b { font-weight: bold; line-height: inherit; }
+small { font-size: 60%; line-height: inherit; }
+code { font-family: Consolas, "Liberation Mono", Courier, monospace; font-weight: normal; color: #6d180b; }
+ul, ol, dl { font-size: 1em; line-height: 1.6; margin-bottom: 1.25em; list-style-position: outside; font-family: inherit; }
+ul, ol { margin-left: 1.5em; }
+ul li ul, ul li ol { margin-left: 1.25em; margin-bottom: 0; font-size: 1em; }
+ul.square li ul, ul.circle li ul, ul.disc li ul { list-style: inherit; }
+ul.square { list-style-type: square; }
+ul.circle { list-style-type: circle; }
+ul.disc { list-style-type: disc; }
+ul.no-bullet { list-style: none; }
+ol li ul, ol li ol { margin-left: 1.25em; margin-bottom: 0; }
+dl dt { margin-bottom: 0.3125em; font-weight: bold; }
+dl dd { margin-bottom: 1.25em; }
+abbr, acronym { text-transform: uppercase; font-size: 90%; color: #222222; border-bottom: 1px dotted #dddddd; cursor: help; }
+abbr { text-transform: none; }
+blockquote { margin: 0 0 1.25em; padding: 0.5625em 1.25em 0 1.1875em; border-left: 1px solid #dddddd; }
+blockquote cite { display: block; font-size: inherit; color: #555555; }
+blockquote cite:before { content: "\2014 \0020"; }
+blockquote cite a, blockquote cite a:visited { color: #555555; }
+blockquote, blockquote p { line-height: 1.6; color: #6f6f6f; }
+.vcard { display: inline-block; margin: 0 0 1.25em 0; border: 1px solid #dddddd; padding: 0.625em 0.75em; }
+.vcard li { margin: 0; display: block; }
+.vcard .fn { font-weight: bold; font-size: 0.9375em; }
+.vevent .summary { font-weight: bold; }
+.vevent abbr { cursor: auto; text-decoration: none; font-weight: bold; border: none; padding: 0 0.0625em; }
+@media only screen and (min-width: 768px) { h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { line-height: 1.4; }
+  h1 { font-size: 2.75em; }
+  h2 { font-size: 2.3125em; }
+  h3, #toctitle, .sidebarblock > .content > .title { font-size: 1.6875em; }
+  h4 { font-size: 1.4375em; } }
+.print-only { display: none !important; }
+@media print { * { background: transparent !important; color: #000 !important; box-shadow: none !important; text-shadow: none !important; }
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3, #toctitle, .sidebarblock > .content > .title { orphans: 3; widows: 3; }
+  h2, h3, #toctitle, .sidebarblock > .content > .title { page-break-after: avoid; }
+  .hide-on-print { display: none !important; }
+  .print-only { display: block !important; }
+  .hide-for-print { display: none !important; }
+  .show-for-print { display: inherit !important; } }
+table { background: white; margin-bottom: 1.25em; border: solid 1px #dddddd; }
+table thead, table tfoot { background: whitesmoke; font-weight: bold; }
+table thead tr th, table thead tr td, table tfoot tr th, table tfoot tr td { padding: 0.5em 0.625em 0.625em; font-size: inherit; color: #222222; text-align: left; }
+table tr th, table tr td { padding: 0.5625em 0.625em; font-size: inherit; color: #222222; }
+table tr.even, table tr.alt, table tr:nth-of-type(even) { background: #f9f9f9; }
+table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoot tr td { display: table-cell; line-height: 1.6; }
+.clearfix:before, .clearfix:after, .float-group:before, .float-group:after { content: " "; display: table; }
+.clearfix:after, .float-group:after { clear: both; }
+*:not(pre) > code { font-size: 0.9375em; padding: 1px 3px 0; white-space: nowrap; background-color: #f2f2f2; border: 1px solid #cccccc; -webkit-border-radius: 4px; border-radius: 4px; text-shadow: none; }
+pre, pre > code { line-height: 1.4; color: inherit; font-family: Consolas, "Liberation Mono", Courier, monospace; font-weight: normal; }
+kbd.keyseq { color: #555555; }
+kbd:not(.keyseq) { display: inline-block; color: #222222; font-size: 0.75em; line-height: 1.4; background-color: #F7F7F7; border: 1px solid #ccc; -webkit-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset; margin: -0.15em 0.15em 0 0.15em; padding: 0.2em 0.6em 0.2em 0.5em; vertical-align: middle; white-space: nowrap; }
+kbd kbd:first-child { margin-left: 0; }
+kbd kbd:last-child { margin-right: 0; }
+.menuseq, .menu { color: #090909; }
+p a > code:hover { color: #561309; }
+#header, #content, #footnotes, #footer { width: 100%; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; max-width: 62.5em; *zoom: 1; position: relative; padding-left: 0.9375em; padding-right: 0.9375em; }
+#header:before, #header:after, #content:before, #content:after, #footnotes:before, #footnotes:after, #footer:before, #footer:after { content: " "; display: table; }
+#header:after, #content:after, #footnotes:after, #footer:after { clear: both; }
+#header { margin-bottom: 2.5em; }
+#header > h1 { color: black; font-weight: normal; border-bottom: 1px solid #dddddd; margin-bottom: -28px; padding-bottom: 32px; }
+#header span { color: #6f6f6f; }
+#header #revnumber { text-transform: capitalize; }
+#header br { display: none; }
+#header br + span { padding-left: 3px; }
+#header br + span:before { content: "\2013 \0020"; }
+#header br + span.author { padding-left: 0; }
+#header br + span.author:before { content: ", "; }
+#toc { border-bottom: 3px double #ebebeb; padding-bottom: 1.25em; }
+#toc > ul { margin-left: 0.25em; }
+#toc ul.sectlevel0 > li > a { font-style: italic; }
+#toc ul.sectlevel0 ul.sectlevel1 { margin-left: 0; margin-top: 0.5em; margin-bottom: 0.5em; }
+#toc ul { list-style-type: none; }
+#toctitle { color: #7a2518; }
+@media only screen and (min-width: 1280px) { body.toc2 { padding-left: 20em; }
+  #toc.toc2 { position: fixed; width: 20em; left: 0; top: 0; border-right: 1px solid #ebebeb; border-bottom: 0; z-index: 1000; padding: 1em; height: 100%; overflow: auto; }
+  #toc.toc2 #toctitle { margin-top: 0; }
+  #toc.toc2 > ul { font-size: .95em; }
+  #toc.toc2 ul ul { margin-left: 0; padding-left: 1.25em; }
+  #toc.toc2 ul.sectlevel0 ul.sectlevel1 { padding-left: 0; margin-top: 0.5em; margin-bottom: 0.5em; }
+  body.toc2.toc-right { padding-left: 0; padding-right: 20em; }
+  body.toc2.toc-right #toc.toc2 { border-right: 0; border-left: 1px solid #ebebeb; left: auto; right: 0; } }
+#content #toc { border-style: solid; border-width: 1px; border-color: #d9d9d9; margin-bottom: 1.25em; padding: 1.25em; background: #f2f2f2; border-width: 0; -webkit-border-radius: 4px; border-radius: 4px; }
+#content #toc > :first-child { margin-top: 0; }
+#content #toc > :last-child { margin-bottom: 0; }
+#content #toc a { text-decoration: none; }
+#content #toctitle { font-weight: bold; font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-size: 1em; padding-left: 0.125em; }
+#footer { max-width: 100%; background-color: #222222; padding: 1.25em; }
+#footer-text { color: #dddddd; line-height: 1.44; }
+.sect1 { padding-bottom: 1.25em; }
+.sect1 + .sect1 { border-top: 3px double #ebebeb; }
+#content h1 > a.anchor, h2 > a.anchor, h3 > a.anchor, #toctitle > a.anchor, .sidebarblock > .content > .title > a.anchor, h4 > a.anchor, h5 > a.anchor, h6 > a.anchor { position: absolute; width: 1em; margin-left: -1em; display: block; text-decoration: none; visibility: hidden; text-align: center; font-weight: normal; }
+#content h1 > a.anchor:before, h2 > a.anchor:before, h3 > a.anchor:before, #toctitle > a.anchor:before, .sidebarblock > .content > .title > a.anchor:before, h4 > a.anchor:before, h5 > a.anchor:before, h6 > a.anchor:before { content: '\00A7'; font-size: .85em; vertical-align: text-top; display: block; margin-top: 0.05em; }
+#content h1:hover > a.anchor, #content h1 > a.anchor:hover, h2:hover > a.anchor, h2 > a.anchor:hover, h3:hover > a.anchor, #toctitle:hover > a.anchor, .sidebarblock > .content > .title:hover > a.anchor, h3 > a.anchor:hover, #toctitle > a.anchor:hover, .sidebarblock > .content > .title > a.anchor:hover, h4:hover > a.anchor, h4 > a.anchor:hover, h5:hover > a.anchor, h5 > a.anchor:hover, h6:hover > a.anchor, h6 > a.anchor:hover { visibility: visible; }
+#content h1 > a.link, h2 > a.link, h3 > a.link, #toctitle > a.link, .sidebarblock > .content > .title > a.link, h4 > a.link, h5 > a.link, h6 > a.link { color: #ba3925; text-decoration: none; }
+#content h1 > a.link:hover, h2 > a.link:hover, h3 > a.link:hover, #toctitle > a.link:hover, .sidebarblock > .content > .title > a.link:hover, h4 > a.link:hover, h5 > a.link:hover, h6 > a.link:hover { color: #a53221; }
+.imageblock, .literalblock, .listingblock, .verseblock, .videoblock { margin-bottom: 1.25em; }
+.admonitionblock td.content > .title, .exampleblock > .title, .imageblock > .title, .videoblock > .title, .listingblock > .title, .literalblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, .sidebarblock > .title, .tableblock > .title, .verseblock > .title, .dlist > .title, .olist > .title, .ulist > .title, .qlist > .title, .hdlist > .title { text-align: left; font-weight: bold; }
+.tableblock > caption { text-align: left; font-weight: bold; white-space: nowrap; overflow: visible; max-width: 0; }
+table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p { font-size: inherit; }
+.admonitionblock > table { border: 0; background: none; width: 100%; }
+.admonitionblock > table td.icon { text-align: center; width: 80px; }
+.admonitionblock > table td.icon img { max-width: none; }
+.admonitionblock > table td.icon .title { font-weight: bold; text-transform: uppercase; }
+.admonitionblock > table td.content { padding-left: 1.125em; padding-right: 1.25em; border-left: 1px solid #dddddd; color: #6f6f6f; }
+.admonitionblock > table td.content > :last-child > :last-child { margin-bottom: 0; }
+.exampleblock > .content { border-style: solid; border-width: 1px; border-color: #e6e6e6; margin-bottom: 1.25em; padding: 1.25em; background: white; -webkit-border-radius: 4px; border-radius: 4px; }
+.exampleblock > .content > :first-child { margin-top: 0; }
+.exampleblock > .content > :last-child { margin-bottom: 0; }
+.exampleblock > .content h1, .exampleblock > .content h2, .exampleblock > .content h3, .exampleblock > .content #toctitle, .sidebarblock.exampleblock > .content > .title, .exampleblock > .content h4, .exampleblock > .content h5, .exampleblock > .content h6, .exampleblock > .content p { color: #333333; }
+.exampleblock > .content h1, .exampleblock > .content h2, .exampleblock > .content h3, .exampleblock > .content #toctitle, .sidebarblock.exampleblock > .content > .title, .exampleblock > .content h4, .exampleblock > .content h5, .exampleblock > .content h6 { line-height: 1; margin-bottom: 0.625em; }
+.exampleblock > .content h1.subheader, .exampleblock > .content h2.subheader, .exampleblock > .content h3.subheader, .exampleblock > .content .subheader#toctitle, .sidebarblock.exampleblock > .content > .subheader.title, .exampleblock > .content h4.subheader, .exampleblock > .content h5.subheader, .exampleblock > .content h6.subheader { line-height: 1.4; }
+.exampleblock.result > .content { -webkit-box-shadow: 0 1px 8px #d9d9d9; box-shadow: 0 1px 8px #d9d9d9; }
+.sidebarblock { border-style: solid; border-width: 1px; border-color: #d9d9d9; margin-bottom: 1.25em; padding: 1.25em; background: #f2f2f2; -webkit-border-radius: 4px; border-radius: 4px; }
+.sidebarblock > :first-child { margin-top: 0; }
+.sidebarblock > :last-child { margin-bottom: 0; }
+.sidebarblock h1, .sidebarblock h2, .sidebarblock h3, .sidebarblock #toctitle, .sidebarblock > .content > .title, .sidebarblock h4, .sidebarblock h5, .sidebarblock h6, .sidebarblock p { color: #333333; }
+.sidebarblock h1, .sidebarblock h2, .sidebarblock h3, .sidebarblock #toctitle, .sidebarblock > .content > .title, .sidebarblock h4, .sidebarblock h5, .sidebarblock h6 { line-height: 1; margin-bottom: 0.625em; }
+.sidebarblock h1.subheader, .sidebarblock h2.subheader, .sidebarblock h3.subheader, .sidebarblock .subheader#toctitle, .sidebarblock > .content > .subheader.title, .sidebarblock h4.subheader, .sidebarblock h5.subheader, .sidebarblock h6.subheader { line-height: 1.4; }
+.sidebarblock > .content > .title { color: #7a2518; margin-top: 0; line-height: 1.6; }
+.exampleblock > .content > :last-child > :last-child, .exampleblock > .content .olist > ol > li:last-child > :last-child, .exampleblock > .content .ulist > ul > li:last-child > :last-child, .exampleblock > .content .qlist > ol > li:last-child > :last-child, .sidebarblock > .content > :last-child > :last-child, .sidebarblock > .content .olist > ol > li:last-child > :last-child, .sidebarblock > .content .ulist > ul > li:last-child > :last-child, .sidebarblock > .content .qlist > ol > li:last-child > :last-child { margin-bottom: 0; }
+.literalblock > .content pre, .listingblock > .content pre { background: none; border-width: 1px 0; border-style: dotted; border-color: #bfbfbf; -webkit-border-radius: 4px; border-radius: 4px; padding: 0.75em 0.75em 0.5em 0.75em; word-wrap: break-word; }
+.literalblock > .content pre.nowrap, .listingblock > .content pre.nowrap { overflow-x: auto; white-space: pre; word-wrap: normal; }
+.literalblock > .content pre > code, .listingblock > .content pre > code { display: block; }
+@media only screen { .literalblock > .content pre, .listingblock > .content pre { font-size: 0.8em; } }
+@media only screen and (min-width: 768px) { .literalblock > .content pre, .listingblock > .content pre { font-size: 0.9em; } }
+@media only screen and (min-width: 1280px) { .literalblock > .content pre, .listingblock > .content pre { font-size: 1em; } }
+.listingblock > .content { position: relative; }
+.listingblock:hover code[class*=" language-"]:before { text-transform: uppercase; font-size: 0.9em; color: #999; position: absolute; top: 0.375em; right: 0.375em; }
+.listingblock:hover code.asciidoc:before { content: "asciidoc"; }
+.listingblock:hover code.clojure:before { content: "clojure"; }
+.listingblock:hover code.css:before { content: "css"; }
+.listingblock:hover code.groovy:before { content: "groovy"; }
+.listingblock:hover code.html:before { content: "html"; }
+.listingblock:hover code.java:before { content: "java"; }
+.listingblock:hover code.javascript:before { content: "javascript"; }
+.listingblock:hover code.python:before { content: "python"; }
+.listingblock:hover code.ruby:before { content: "ruby"; }
+.listingblock:hover code.scss:before { content: "scss"; }
+.listingblock:hover code.xml:before { content: "xml"; }
+.listingblock:hover code.yaml:before { content: "yaml"; }
+.listingblock.terminal pre .command:before { content: attr(data-prompt); padding-right: 0.5em; color: #999; }
+.listingblock.terminal pre .command:not([data-prompt]):before { content: '$'; }
+table.pyhltable { border: 0; margin-bottom: 0; }
+table.pyhltable td { vertical-align: top; padding-top: 0; padding-bottom: 0; }
+table.pyhltable td.code { padding-left: .75em; padding-right: 0; }
+.highlight.pygments .lineno, table.pyhltable td:not(.code) { color: #999; padding-left: 0; padding-right: .5em; border-right: 1px solid #dddddd; }
+.highlight.pygments .lineno { display: inline-block; margin-right: .25em; }
+table.pyhltable .linenodiv { background-color: transparent !important; padding-right: 0 !important; }
+.quoteblock { margin: 0 0 1.25em; padding: 0.5625em 1.25em 0 1.1875em; border-left: 1px solid #dddddd; }
+.quoteblock blockquote { margin: 0 0 1.25em 0; padding: 0 0 0.5625em 0; border: 0; }
+.quoteblock blockquote > .paragraph:last-child p { margin-bottom: 0; }
+.quoteblock .attribution { margin-top: -.25em; padding-bottom: 0.5625em; font-size: inherit; color: #555555; }
+.quoteblock .attribution br { display: none; }
+.quoteblock .attribution cite { display: block; margin-bottom: 0.625em; }
+table thead th, table tfoot th { font-weight: bold; }
+table.tableblock.grid-all { border-collapse: separate; border-spacing: 1px; -webkit-border-radius: 4px; border-radius: 4px; border-top: 1px solid #dddddd; border-bottom: 1px solid #dddddd; }
+table.tableblock.frame-topbot, table.tableblock.frame-none { border-left: 0; border-right: 0; }
+table.tableblock.frame-sides, table.tableblock.frame-none { border-top: 0; border-bottom: 0; }
+table.tableblock td .paragraph:last-child p, table.tableblock td > p:last-child { margin-bottom: 0; }
+th.tableblock.halign-left, td.tableblock.halign-left { text-align: left; }
+th.tableblock.halign-right, td.tableblock.halign-right { text-align: right; }
+th.tableblock.halign-center, td.tableblock.halign-center { text-align: center; }
+th.tableblock.valign-top, td.tableblock.valign-top { vertical-align: top; }
+th.tableblock.valign-bottom, td.tableblock.valign-bottom { vertical-align: bottom; }
+th.tableblock.valign-middle, td.tableblock.valign-middle { vertical-align: middle; }
+p.tableblock.header { color: #222222; font-weight: bold; }
+td > div.verse { white-space: pre; }
+ol { margin-left: 1.75em; }
+ul li ol { margin-left: 1.5em; }
+dl dd { margin-left: 1.125em; }
+dl dd:last-child, dl dd:last-child > :last-child { margin-bottom: 0; }
+ol > li p, ul > li p, ul dd, ol dd, .olist .olist, .ulist .ulist, .ulist .olist, .olist .ulist { margin-bottom: 0.625em; }
+ul.unstyled, ol.unnumbered, ul.checklist, ul.none { list-style-type: none; }
+ul.unstyled, ol.unnumbered, ul.checklist { margin-left: 0.625em; }
+ul.checklist li > p:first-child > i[class^="icon-check"]:first-child, ul.checklist li > p:first-child > input[type="checkbox"]:first-child { margin-right: 0.25em; }
+ul.checklist li > p:first-child > input[type="checkbox"]:first-child { position: relative; top: 1px; }
+ul.inline { margin: 0 auto 0.625em auto; margin-left: -1.375em; margin-right: 0; padding: 0; list-style: none; overflow: hidden; }
+ul.inline > li { list-style: none; float: left; margin-left: 1.375em; display: block; }
+ul.inline > li > * { display: block; }
+.unstyled dl dt { font-weight: normal; font-style: normal; }
+ol.arabic { list-style-type: decimal; }
+ol.decimal { list-style-type: decimal-leading-zero; }
+ol.loweralpha { list-style-type: lower-alpha; }
+ol.upperalpha { list-style-type: upper-alpha; }
+ol.lowerroman { list-style-type: lower-roman; }
+ol.upperroman { list-style-type: upper-roman; }
+ol.lowergreek { list-style-type: lower-greek; }
+.hdlist > table, .colist > table { border: 0; background: none; }
+.hdlist > table > tbody > tr, .colist > table > tbody > tr { background: none; }
+td.hdlist1 { padding-right: .8em; font-weight: bold; }
+td.hdlist1, td.hdlist2 { vertical-align: top; }
+.literalblock + .colist, .listingblock + .colist { margin-top: -0.5em; }
+.colist > table tr > td:first-of-type { padding: 0 .8em; line-height: 1; }
+.colist > table tr > td:last-of-type { padding: 0.25em 0; }
+.qanda > ol > li > p > em:only-child { color: #00467f; }
+.thumb, .th { line-height: 0; display: inline-block; border: solid 4px white; -webkit-box-shadow: 0 0 0 1px #dddddd; box-shadow: 0 0 0 1px #dddddd; }
+.imageblock.left, .imageblock[style*="float: left"] { margin: 0.25em 0.625em 1.25em 0; }
+.imageblock.right, .imageblock[style*="float: right"] { margin: 0.25em 0 1.25em 0.625em; }
+.imageblock > .title { margin-bottom: 0; }
+.imageblock.thumb, .imageblock.th { border-width: 6px; }
+.imageblock.thumb > .title, .imageblock.th > .title { padding: 0 0.125em; }
+.image.left, .image.right { margin-top: 0.25em; margin-bottom: 0.25em; display: inline-block; line-height: 0; }
+.image.left { margin-right: 0.625em; }
+.image.right { margin-left: 0.625em; }
+a.image { text-decoration: none; }
+span.footnote, span.footnoteref { vertical-align: super; font-size: 0.875em; }
+span.footnote a, span.footnoteref a { text-decoration: none; }
+#footnotes { padding-top: 0.75em; padding-bottom: 0.75em; margin-bottom: 0.625em; }
+#footnotes hr { width: 20%; min-width: 6.25em; margin: -.25em 0 .75em 0; border-width: 1px 0 0 0; }
+#footnotes .footnote { padding: 0 0.375em; line-height: 1.3; font-size: 0.875em; margin-left: 1.2em; text-indent: -1.2em; margin-bottom: .2em; }
+#footnotes .footnote a:first-of-type { font-weight: bold; text-decoration: none; }
+#footnotes .footnote:last-of-type { margin-bottom: 0; }
+#content #footnotes { margin-top: -0.625em; margin-bottom: 0; padding: 0.75em 0; }
+.gist .file-data > table { border: none; background: #fff; width: 100%; margin-bottom: 0; }
+.gist .file-data > table td.line-data { width: 99%; }
+div.unbreakable { page-break-inside: avoid; }
+.big { font-size: larger; }
+.small { font-size: smaller; }
+.underline { text-decoration: underline; }
+.overline { text-decoration: overline; }
+.line-through { text-decoration: line-through; }
+.aqua { color: #00bfbf; }
+.aqua-background { background-color: #00fafa; }
+.black { color: black; }
+.black-background { background-color: black; }
+.blue { color: #0000bf; }
+.blue-background { background-color: #0000fa; }
+.fuchsia { color: #bf00bf; }
+.fuchsia-background { background-color: #fa00fa; }
+.gray { color: #606060; }
+.gray-background { background-color: #7d7d7d; }
+.green { color: #006000; }
+.green-background { background-color: #007d00; }
+.lime { color: #00bf00; }
+.lime-background { background-color: #00fa00; }
+.maroon { color: #600000; }
+.maroon-background { background-color: #7d0000; }
+.navy { color: #000060; }
+.navy-background { background-color: #00007d; }
+.olive { color: #606000; }
+.olive-background { background-color: #7d7d00; }
+.purple { color: #600060; }
+.purple-background { background-color: #7d007d; }
+.red { color: #bf0000; }
+.red-background { background-color: #fa0000; }
+.silver { color: #909090; }
+.silver-background { background-color: #bcbcbc; }
+.teal { color: #006060; }
+.teal-background { background-color: #007d7d; }
+.white { color: #bfbfbf; }
+.white-background { background-color: #fafafa; }
+.yellow { color: #bfbf00; }
+.yellow-background { background-color: #fafa00; }
+span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
+.admonitionblock td.icon [class^="icon-"]:before { font-size: 2.5em; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); cursor: default; }
+.admonitionblock td.icon .icon-note:before { content: "\f05a"; color: #005498; color: #003f72; }
+.admonitionblock td.icon .icon-tip:before { content: "\f0eb"; text-shadow: 1px 1px 2px rgba(155, 155, 0, 0.8); color: #111; }
+.admonitionblock td.icon .icon-warning:before { content: "\f071"; color: #bf6900; }
+.admonitionblock td.icon .icon-caution:before { content: "\f06d"; color: #bf3400; }
+.admonitionblock td.icon .icon-important:before { content: "\f06a"; color: #bf0000; }
+.conum { display: inline-block; color: white !important; background-color: #222222; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; width: 20px; height: 20px; font-size: 12px; font-weight: bold; line-height: 20px; font-family: Arial, sans-serif; font-style: normal; position: relative; top: -2px; letter-spacing: -1px; }
+.conum * { color: white !important; }
+.conum + b { display: none; }
+.conum:after { content: attr(data-value); }
+.conum:not([data-value]):empty { display: none; }
+.literalblock > .content > pre, .listingblock > .content > pre { -webkit-border-radius: 0; border-radius: 0; }
+
+</style>
+</head>
+<body class="article">
+<div id="header">
+<h1>UML et la modélisation</h1>
+<span id="author" class="author">Jean-Michel Bruel</span><br>
+<span id="email" class="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span><br>
+<span id="revnumber">version 1.0,</span>
+<span id="revdate">2016-03-14</span>
+<br><span id="revremark">First draft</span>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_avant_propos">1. Avant-propos</h2>
+<div class="sectionbody">
+<div id="Production" class="imageblock">
+<div class="content">
+<a class="image" href="http://dilbert.com/strips/comic/2010-03-15"><img src="dilbert.png" alt="Dilbert" width="80%"></a>
+</div>
+<div class="title">Figure 1. Produire des applications</div>
+</div>
+<div class="sect2">
+<h3 id="__qui_est_destin_ce_document">1.1. À qui est destiné ce document?</h3>
+<div class="paragraph">
+<p>Les étudiants du DUT informatique, mes collègues enseignants qui cherchent un document de référence accessible, et &#8230; moi-même (pour organiser mes notes diverses)!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__qui_il_n_est_pas_destin">1.2. À qui il n&#8217;est pas destiné?</h3>
+<div class="paragraph">
+<p>Si vous appartenez à une de ces catégories, ce document n&#8217;est pas pour vous :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>vous cherchez un document de référence</p>
+</li>
+<li>
+<p>vous voulez vous perfectionner</p>
+</li>
+<li>
+<p>vous souhaitez préparer une certification <a href="https://www.java.com/fr/">Java</a> ou <a href="http://www.uml.org/">UML&#8482;</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_historique">1.3. Historique</h3>
+<div class="paragraph">
+<p>Ce document est tout nouveau (date de naissance 05/09/2014!), donc merci de votre indulgence &#8230;</p>
+</div>
+<div class="paragraph">
+<p>Vous trouverez en référence (cf. <a href="#refs">Bibiliographie</a>) les ouvrages et autres documents utilisés.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sur_l_auteur">1.4. Sur l&#8217;auteur</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Professeur à l&#8217;http://www.univ-toulouse.fr[Université de Toulouse], en poste à l&#8217;http://www.iut-blagnac.fr/[IUT de Blagnac]</p>
+</li>
+<li>
+<p>Co-fondateur de l&#8217;association <a href="http://www.sysml-france.fr">SysML-France</a></p>
+</li>
+<li>
+<p>Membre du comité éditorial de la revue <em><a href="http://www.sosym.org/">SoSyM</a></em></p>
+</li>
+<li>
+<p>Membre du <em>Steering Committee</em> de la conférence ACM/IEEE <a href="http://www.modelsconference.org/">MODELS</a></p>
+</li>
+<li>
+<p>Chef du département informatique de l&#8217;http://www.iut-blagnac.fr/[IUT de Blagnac] 2009 à 2012</p>
+</li>
+<li>
+<p>Responsable de l&#8217;ancien module (Analyse et Conception des Systèmes d&#8217;Information)</p>
+</li>
+<li>
+<p>Marié à une merveilleuse femme, papa d&#8217;une merveilleuse fille</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>et&#8230;</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ancien étudiant du Professeur Benzekri :-)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="comment-lire">1.5. Comment lire ce document?</h3>
+<div class="paragraph">
+<p>Ce document a été réalisé de manière à être lu de préférence
+dans sa version électronique (au format <code>HTML</code> ou <code>PDF</code>), ce qui permet de
+naviguer entre les références et les renvois interactivement, de consulter
+directement les documents référencés par une URL, etc.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/warning.png" alt="Warning">
+</td>
+<td class="content">
+Si vous lisez la version papier de ce document, ces liens clickables ne
+vous servent à rien, et c&#8217;est votre punition pour avoir utilisé du papier
+au lieu du support électronique!
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_conventions_typographiques">1.5.1. Conventions typographiques</h4>
+<div class="paragraph">
+<p>J&#8217;ai utilisé un certain nombre de conventions personnelles
+pour rendre ce document le plus agréable à lire et le plus
+utile possible, grâce notamment à la puissance d&#8217;http://www.methods.co.nz/asciidoc[AsciiDoc] :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les références bibliographiques présentées en fin de document
+(cf. <a href="#refs">Bibliographie</a>).</p>
+</li>
+<li>
+<p>Les termes anglais (souvent incontournables) sont repérés
+en <em>italique</em>, non pas pour indiquer qu&#8217;il s&#8217;agit d&#8217;un
+mot anglais, mais pour indiquer au lecteur que nous employons
+volontairement ces termes (e.g., <em>Package</em>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Le titre des figures indique (entre parenthèses)
+un <code>M</code> pour les figures issues de <a href="http://www.modeliosoft.com/">Modelio</a>,
+un <code>MD</code> pour les figures issues de <a href="http://www.nomagic.com/">MagicDraw</a>,
+un <code>P</code> pour les figures issues de <a href="http://plantuml.sourceforge.net/">plantUML</a>,
+un <code>Py</code> pour les figures issues de <a href="http://www.eclipse.org/papyrus/">Papyrus</a>,
+un <code>R</code> pour les figures issues de <a href="http://www-142.ibm.com/software/products/us/en/ratirhap">Rhapsody</a>,
+un <code>T</code> pour les figures issues de <a href="http://www.topcased.org">TOPCASED</a>,
+un <code>Y</code> pour les figures issues de <a href="http://yuml.me/">yuml</a>,
+et un <code>UK</code> pour les figures en anglais.</p>
+</div>
+<div class="paragraph">
+<p>Pour les notes, conseils, avertissements, etc. voici la liste des pictogrammes utilisés :</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les notes comme celles-ci sont utilisées pour indiquer des éléments intéressant pour la majorité des lecteurs.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ces notes indiquent des points importants qui réclament votre attention.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Celles-ci concernent en général des points de détail et permettent "d&#8217;aller plus loin".</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/uml.jpeg" alt="Note">
+</td>
+<td class="content">
+<div class="title">Définition : Exemple (OMG UML v2.4.1, p. 152)</div>
+<div class="paragraph">
+<p>Ces notes concernent des définitions tirées de la spécification <a href="http://www.uml.org/">UML&#8482;</a> et sont donc précisément référencées.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/appbar.weather.thunder.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Modélisation UML incorrecte.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/appbar.weather.overcast.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Modélisation UML partiellement correcte ou pouvant prêter à confusion.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/appbar.weather.sun.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Modélisation UML correcte.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pourquoi_parler_de_document">1.6. Pourquoi parler de "document"?</h3>
+<div class="paragraph">
+<p>Parce que j&#8217;ignore la version que vous êtes en train de lire. À partir de l&#8217;<a href="../cours.asc">original</a>, plusieurs versions ont été générées grâce à <a href="http://www.methods.co.nz/asciidoc">AsciiDoc</a> :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Une version pour le web (Moodle) au format <a href="cours.html">html</a></p>
+</li>
+<li>
+<p>Une version pour présentation en amphi au format <a href="cours.slides.html">présentation</a></p>
+</li>
+<li>
+<p>Une version pour impression au format <a href="M3301.pdf">pdf</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_utilisation_et_autres_mentions_l_gales">1.7. Utilisation et autres mentions légales</h3>
+<div class="paragraph">
+<p>Les images qui ne sont pas libres de droit contiennent un lien vers les sites où je les ai "empruntées".</p>
+</div>
+<div class="paragraph">
+<p>N&#8217;hésitez pas à m&#8217;envoyer vos remarques en tout genre en m'écrivant <a href="mailto:jbruel@gmail.com">ici</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contenu_objectifs_et_pr_requis">1.8. Contenu, objectifs et pré-requis</h3>
+<div class="paragraph">
+<p>À faire en dynamique&#8230;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supports_de_cours_et_mat_riel">1.9. Supports de cours et matériel</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Format des cours</dt>
+<dd>
+<p>Journées (9h-12h / 14h-17h a priori)</p>
+</dd>
+<dt class="hdlist1">Supports</dt>
+<dd>
+<p>Pour l&#8217;instant : <a href="http://jmbruel.heroku.com/teaching/PLM/main.html">http://jmbruel.heroku.com/teaching/PLM/main.html</a></p>
+</dd>
+<dt class="hdlist1">Volume</dt>
+<dd>
+<p>30h (5 jours)</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_outils_exercices_et_projet">1.10. Outils, exercices et projet</h3>
+<div class="paragraph">
+<p>Outils <a href="http://www.uml.org/">UML&#8482;</a> que nous utiliserons :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Editeur <a href="http://www.eclipse.org/papyrus/">Papyrus</a> : l&#8217;outil promu par l&#8217;aéronautique (<a href="http://polarsys.org/">Polarsys</a>), Ericsson, etc.</p>
+</li>
+<li>
+<p><a href="http://plantuml.sourceforge.net/">plantUML</a> si vous êtes des geek qui aimez les notations textuelles</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_premi_re_partie_mod_liser_j1">2. Première partie : modéliser (J1)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_mod_liser_c_est_quoi">2.1. Modéliser c&#8217;est quoi ?</h3>
+<div class="sect3">
+<h4 id="_d_finir_un_langage_de_mod_lisation">2.1.1. Définir un langage de modélisation</h4>
+<div class="imageblock">
+<div class="content">
+<img src="idm12.png" alt="idm12" width="80%">
+</div>
+<div class="title">Figure 2. Démarche de définition d&#8217;un langage (cf. <a href="IDM&.html#8217;12">[IDM&#8217;12]</a>)</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_langages">2.1.2. Langages</h4>
+<div class="paragraph">
+<p>Pour communiquer il faut un (ou plusieurs) langage(s) :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Un modèle (M) n’est pas un langage</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+Peut être la description d’un langage
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Un méta-modèle (MM) non plus</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_langage_syntaxe_s_mantique">2.1.3. Langage, syntaxe, sémantique</h4>
+<div class="paragraph">
+<p>Un langage consiste en :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>une notation syntactique</p>
+</li>
+<li>
+<p>un ensemble d’éléments légaux (combinaison, éventuellement infinie, des termes de base de la notation)</p>
+</li>
+<li>
+<p>une interprétation pour ces termes</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Syntaxe</dt>
+<dd>
+<p>ensemble des règles de bon agencement des éléments d’une notation</p>
+</dd>
+<dt class="hdlist1">Domaine sémantique</dt>
+<dd>
+<p>ensemble des interprétations possible pour la notation (« univers du discours »)</p>
+</dd>
+<dt class="hdlist1">Sémantique</dt>
+<dd>
+<p>« mapping » de la syntaxe vers le domaine sémantique</p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les 3 éléments de définition d’un langage ont besoin d’être représentés</p>
+</div>
+<div class="paragraph">
+<p>&#8658; 4ème langage parfois!</p>
+</div>
+<div class="paragraph">
+<p>&#8658; différentes couches (e.g., lettres, mots, phrases,…)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_syntaxe">2.1.4. Syntaxe</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Exemples</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Mots, phrases, déclarations, boîtes, schémas, termes, modules, …</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Différents types</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Graphique</p>
+</li>
+<li>
+<p>Textuelle</p>
+</li>
+<li>
+<p>Abstraite</p>
+</li>
+<li>
+<p>Concrète</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Langage pour la représenter</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Textuelle &#8658; grammaire</p>
+</li>
+<li>
+<p>Graphique &#8658; graphes</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_s_mantique">2.1.5. Sémantique</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Opérationnelle</p>
+<div class="ulist">
+<ul>
+<li>
+<p>suite d'états et de transitions entre ces états</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Dénotationnelle</p>
+<div class="ulist">
+<ul>
+<li>
+<p>fonction mathématique qui fait passer d&#8217;un état (entrée de la fonction) à un autre (sortie)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Axiomatique</p>
+<div class="ulist">
+<ul>
+<li>
+<p>propriétés logique sur les états</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mod_le">2.1.6. Modèle</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Représentation d&#8217;un système</p>
+<div class="ulist">
+<ul>
+<li>
+<p>créé dans un certain objectif</p>
+</li>
+<li>
+<p>utilisé éventuellement pour prédire ou analyser son comportement</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Description vs. Spécification</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Description &#8658; système existant</p>
+</li>
+<li>
+<p>Spécification &#8658; système attend</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Représentation &#8658; relation système/modèle</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Objectifs :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Appréhender la complexité des systèmes</p>
+</li>
+<li>
+<p>Découpler les considérations</p>
+</li>
+<li>
+<p>Formaliser les éléments intuitifs</p>
+</li>
+<li>
+<p>Dialoguer (interne à l’équipe mais aussi externe)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Différents et nombreux :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Instants du cycle de vie</p>
+</li>
+<li>
+<p>Niveau d’abstractions</p>
+</li>
+<li>
+<p>Considérations (vues)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>&#8658; multiplicité des modèles</p>
+</div>
+<div class="paragraph">
+<p>Exemple d’UML :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Modèles de comportement</p>
+</li>
+<li>
+<p>Modèles des besoins</p>
+</li>
+<li>
+<p>Modèles des données</p>
+</li>
+<li>
+<p>Modèles des communications</p>
+</li>
+<li>
+<p>&#8230;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Notation formelle pour la représentation :</p>
+</div>
+<div class="paragraph">
+<p>&#8658; notion de <strong>conformité</strong></p>
+</div>
+<div class="paragraph">
+<p>&#8658; notion de <strong>méta-modèle</strong></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_m_ta_mod_le_et_niveaux">2.1.7. Méta-modèle et niveaux</h4>
+<div class="imageblock">
+<div class="content">
+<img src="M4.png" alt="M4">
+</div>
+<div class="title">Figure 3. Le modèle en 4 couches (source @jeanBezivin)</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_importance_de_la_mod_lisation_en_informatique">2.1.8. Importance de la modélisation en informatique</h4>
+<div class="imageblock">
+<div class="content">
+<img src="fig-placeCentrale.png" alt="fig placeCentrale" width="80%">
+</div>
+<div class="title">Figure 4. Place centrale</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fondements">3. Fondements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pour mener à bien le développement d&#8217;un système informatique industriel
+ou commercial, on ne peut pas improviser. Il s&#8217;agit d&#8217;un travail impliquant
+un grand nombre de personnes, des enjeux financiers souvent énormes.
+Le but de ce cours est de vous faire prendre conscience de cet état de fait
+autant que de vous donner les différentes techniques liées à cette activité.
+Au nom de quoi pouvez-vous avoir confiance dans les conseils présentés dans ce cours?
+Il ne faut pas justement! Il vous faut sans arrêt questionner, remettre en cause
+les idées reçues.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;objectif de ce cours est d&#8217;aborder la problématique du développement
+raisonné (de qualité, sûr, rapide, pas cher, etc.) de systèmes.
+La méthode choisie est celle des études de cas et des applications concrètes.</p>
+</div>
+<div class="paragraph">
+<p>Les concepts abordés peuvent se classer en différents niveaux  <a href="#gram86">[gram86]</a> :</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">stratégies</dt>
+<dd>
+<p>règles de comportement général guidant les choix du développeur (par exemple,
+obtenir le plus rapidement possible un énoncé exécutable relève de la stratégie "prototyper").</p>
+</dd>
+<dt class="hdlist1">tactiques</dt>
+<dd>
+<p>décrivent des étapes logiques de développement conduisant à un énoncé possédant
+certaines propriétés (par exemple, passer d&#8217;un énoncé imprécis à un énoncé totalement défini
+relève de la tactique "spécifier").</p>
+</dd>
+<dt class="hdlist1">paradigmes</dt>
+<dd>
+<p>sont des étapes élémentaires de la construction d&#8217;un programme (par exemple,
+expliciter une entité par un nom et une définition informelle revient à appliquer le paradigme "désigner").</p>
+</dd>
+</dl>
+</div>
+<div class="sect2">
+<h3 id="_strat_gies">3.1. Stratégies</h3>
+<div class="paragraph">
+<p>On vous parlera ici de méthodes, de cycle de vie, de gestion de projet. Mais nous aborderons cela bien plus tard
+car dans un premier temps cela va être à la fois rébarbatif et très loin de vos préoccupations.</p>
+</div>
+<div class="paragraph">
+<p>Pour l&#8217;instant retenons des principes simples :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Comprendre</p>
+</li>
+<li>
+<p>S&#8217;organiser</p>
+</li>
+<li>
+<p>Modéliser</p>
+</li>
+<li>
+<p>S&#8217;adapter</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_comprendre">3.1.1. Comprendre</h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Théoricien : individu qui n&#8217;est pas de votre avis.</p>
+</div>
+</blockquote>
+<div class="attribution">
+<cite>découvert dans Le Lexique d'Habrias</cite><br>
+&#8212; Auguste Detoeuf
+</div>
+</div>
+<div class="paragraph">
+<p>Le problème, l&#8217;environnement, les outils à maîtriser, la solution attendue, le domaine métier, etc.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_s_organiser">3.1.2. S&#8217;organiser</h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Vingt fois sur le métier remettez votre ouvrage :
+Polissez-le sans cesse et le repolissez ;
+Ajoutez quelquefois, et souvent effacez.</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; N. Boileau
+</div>
+</div>
+<div class="paragraph">
+<p>Dans les méthodes agiles on parle de "sprint 0". Il est important de bien s&#8217;organiser avant de foncer tête baissée
+dans le travail à proprement parlé.</p>
+</div>
+<div class="paragraph">
+<p>Voici quelques éléments importants à aborder :</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Démarche globale</dt>
+<dd>
+<p>Quelle démarche allez-vous mettre en oeuvre (Merise, RUP, Agile, personnelle, &#8230;)?</p>
+</dd>
+<dt class="hdlist1">Rôles</dt>
+<dd>
+<p>Qui va faire quoi?</p>
+</dd>
+<dt class="hdlist1">Environnement</dt>
+<dd>
+<p>Quels outils allez-vous utiliser (modélisation, analyse, développement, test, documentation)?</p>
+</dd>
+<dt class="hdlist1">Versionnage</dt>
+<dd>
+<p>Il est très important, surtout dans un travail collaboratif, de bien utiliser un outil de gestion de version. Que ce soit pour le code (facile), la documentation (moins évident) ou les modèles (très difficile). Pour le code, le nombre de systèmes disponibles vous empêche d&#8217;avoir une excuse (<a href="http://git-scm.com/">Git</a>,<a href="https://subversion.apache.org/">Subversion</a>,<a href="http://mercurial.selenic.com/">Mercurial</a>).</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mod_liser">3.1.3. Modéliser</h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Ce que l&#8217;on conçoit bien s'énonce clairement.
+Et les mots pour le dire arrivent aisément.</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; N. Boileau
+</div>
+</div>
+<div class="paragraph">
+<p>Pour s&#8217;abstraire.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_s_adapter">3.1.4. S&#8217;adapter</h4>
+<div class="paragraph">
+<p>Se mettre à jour des techniques. Adapter sa façon de procéder au contexte (au poste que l&#8217;on occupe
+par exemple). Voir <a href="#feedback">Améliorations</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tactiques">3.2. Tactiques</h3>
+<div class="paragraph">
+<p>Liste de tactiques :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>spécifier</p>
+</li>
+<li>
+<p>décomposition (d&#8217;un problème en sous-problème)</p>
+</li>
+<li>
+<p>itération</p>
+</li>
+<li>
+<p>induction (construire un énoncé récursif)</p>
+</li>
+<li>
+<p>approximation (organiser la résolution d&#8217;un problème en étudiant d&#8217;abord un nouveau problème, considéré comme plus simple)</p>
+</li>
+<li>
+<p>généralisation (formuler et résoudre le problème à un niveau d&#8217;abstraction plus général pour permettre ensuite
+un plus grand nombre d&#8217;identifications)</p>
+</li>
+<li>
+<p>réutilisation (exploiter au mieux tout travail déjà fait, cf. aussi <a href="#DRY">[DRY]</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_paradigmes">3.3. Paradigmes</h3>
+<div class="paragraph">
+<p>Liste de paradigmes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>désigner</p>
+</li>
+<li>
+<p>typer (décrire les proriétés pertinentes d&#8217;une entité)</p>
+</li>
+<li>
+<p>affaiblir (transformer un énoncé pour en réduire la complexité)</p>
+</li>
+<li>
+<p>renforcer (compléter un énoncé par des contraintes supplémentaires)</p>
+</li>
+<li>
+<p>décomposer par cas (lorsqu&#8217;on distingue plusieurs traitements suivant
+les données du problème à un endroit donné)</p>
+</li>
+<li>
+<p>sérialiser (pour définir un résultat, utiliser un résultat intermédiaire <code>x</code> à
+partir des données, puis exprimer le résultat à partir de <code>x</code>)</p>
+</li>
+<li>
+<p>répartir (définir séparément un certain nombre de sous-résultats, qu&#8217;il s&#8217;agit ensuite de
+composer entre eux pour obtenir le résultat attendu)</p>
+</li>
+<li>
+<p>identifier (identifier deux problèmes consiste à reconnaître leur identité au-delà
+des différences de forme de leurs énoncés)</p>
+</li>
+<li>
+<p>paramétrer (faire abstraction des valeurs particulières de certaines entités,
+parce qu&#8217;elles ne sont pas pertinentes pour l'élaboration de la solution visée)</p>
+</li>
+<li>
+<p>représenter (choisir, pour certaines entités, les types, les relations et le moyen d&#8217;expression adéquats)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Les tactiques sont des compositions de paradigmes.
+Ainsi, la mise en oeuvre de la tactique d&#8217;approximation consiste à appliquer le paradigme
+<strong>affaiblir</strong>, et le cas échéant le paradigme <strong>renforcer</strong> pour revenir au problème posé.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_le_manifeste_agile">3.4. Le Manifeste Agile</h3>
+<div class="paragraph">
+<p>Le <strong>Manifeste Agile</strong> (<em>Agile Manifesto</em> <a href="#HighsmithFowler2001">[HighsmithFowler2001]</a>)
+	est un ensemble de principes (voir aussi <a href="#1030005">[1030005]</a> pour une analyse plus récente).</p>
+</div>
+<div id="Satisfaction" class="exampleblock">
+<div class="title">Principe : Satisfaction</div>
+<div class="content">
+<div class="paragraph">
+<p>Notre plus haute priorité est de satisfaire le client
+en lui livrant rapidement, et ce, de façon continue
+un logiciel de qualité.</p>
+</div>
+</div>
+</div>
+<div id="feedback" class="exampleblock">
+<div class="title">Principe : Améliorations</div>
+<div class="content">
+<div class="paragraph">
+<p>À intervalles réguliers, l'équipe réfléchit sur une façon
+de devenir plus efficace, puis adapte et ajuste son comportement en conséquence.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_la_notation_uml">4. La notation UML</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_m_thodologie_de_d_veloppement">4.1. Méthodologie de développement</h3>
+<div class="paragraph">
+<p>Nous allons aborder les points suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pourquoi l&#8217;orienté objet ?</p>
+</li>
+<li>
+<p>Pourquoi UML?</p>
+</li>
+<li>
+<p>Processus de développement</p>
+</li>
+<li>
+<p>Conception logicielle</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_pourquoi_l_orient_objet">4.1.1. Pourquoi l&#8217;orienté objet ?</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Prendre en compte tout le système</p>
+</li>
+<li>
+<p>Ce que fait le système + comment il est organisé pour le faire</p>
+</li>
+<li>
+<p>Quelques concepts fondamentaux :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>les objets</p>
+</li>
+<li>
+<p>les messages</p>
+</li>
+<li>
+<p>les classes</p>
+</li>
+<li>
+<p>l&#8217;héritage et le polymorphisme</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pourquoi_uml">4.1.2. Pourquoi UML?</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>tout le cycle de vie :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>visualisation</p>
+</li>
+<li>
+<p>spécification</p>
+</li>
+<li>
+<p>construction du système</p>
+</li>
+<li>
+<p>documentation</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>synthèse des meilleurs aspects des méthodes courantes</p>
+</li>
+<li>
+<p>standard mondial</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_processus_de_d_veloppement">4.1.3. Processus de développement</h4>
+<div class="paragraph">
+<p>Activités de bases :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Expression des besoins</p>
+</li>
+<li>
+<p>Identification de l&#8217;environnement et du contexte</p>
+</li>
+<li>
+<p>Planification</p>
+</li>
+<li>
+<p>Analyse</p>
+</li>
+<li>
+<p>Conception</p>
+</li>
+<li>
+<p>Implémentation</p>
+</li>
+<li>
+<p>Test</p>
+</li>
+<li>
+<p>Révision</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Plusieurs approches :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cycle en cascade ("<em>waterfall</em>")</p>
+</li>
+<li>
+<p>En spiral (Boehm)</p>
+</li>
+<li>
+<p>Itératif (RUP, openUP)</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Inception</em> : évaluation initiale (risques, etc.)</p>
+</li>
+<li>
+<p><em>Elaboration</em> : architecture, principaux éléments</p>
+</li>
+<li>
+<p><em>Construction</em> : développement incrémentale</p>
+</li>
+<li>
+<p><em>Transition</em> : déploiement, formation</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>eXtreme Programming</p>
+<div class="ulist">
+<ul>
+<li>
+<p>ensembles de "principes"</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_conception_logicielle">4.1.4. Conception logicielle</h4>
+<div class="paragraph">
+<p>Qu&#8217;est-ce qu&#8217;une bonne conception?</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>elle est conforme aux besoins fonctionnels / non-fonctionnels</p>
+</li>
+<li>
+<p>elle est modulable et extensible</p>
+</li>
+<li>
+<p>elle est compréhensible et vérifiable</p>
+</li>
+<li>
+<p>elle est aussi simple que possible</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Quelques éléments dans ce sens :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>séparations des responsabilités (e.g., 3-tiers)</p>
+</li>
+<li>
+<p>modularité</p>
+</li>
+<li>
+<p>faible dépendance et forte cohésion</p>
+</li>
+<li>
+<p>utilisation de standards (outils, langages et notations)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Notation pour la conception</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cas d&#8217;utilisation</p>
+</li>
+<li>
+<p>Diagrammes de classe</p>
+</li>
+<li>
+<p>Diagrammes d'état (statechart)</p>
+</li>
+<li>
+<p>Diagrammes d&#8217;interaction (scénarios)</p>
+</li>
+<li>
+<p>Diagrammes de séquence</p>
+</li>
+<li>
+<p>Diagrammes de communication (collaboration)</p>
+</li>
+<li>
+<p>Spécification des opérations et méthodes</p>
+</li>
+<li>
+<p>Diagrammes de flux d'écran</p>
+</li>
+<li>
+<p>Tables de décision</p>
+</li>
+<li>
+<p>CRC</p>
+</li>
+<li>
+<p>&#8230;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_uml_en_r_sum">4.2. UML en résumé</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Diagrammes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>13 dans la version 2.0</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Principes généraux</p>
+</li>
+<li>
+<p>Mécanismes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>paquetages</p>
+</li>
+<li>
+<p>stéréotypes</p>
+</li>
+<li>
+<p>étiquettes</p>
+</li>
+<li>
+<p>notes</p>
+</li>
+<li>
+<p>contraintes</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_encha_nement_des_mod_les">4.3. Enchaînement des modèles</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+Nous utilisons dans ce cours la démarche mise en avant dans <a href="#Roques2007a">[Roques2007a]</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="pr1.png" alt="pr1">
+</div>
+<div class="title">Figure 5. L&#8217;objectif de la modélisation : combler le gap entre exigences et code</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="pr2.png" alt="pr2">
+</div>
+<div class="title">Figure 6. Analyse des besoins utilisateurs</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="pr3.png" alt="pr3">
+</div>
+<div class="title">Figure 7. Analyse des besoins utilisateurs</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="pr4.png" alt="pr4">
+</div>
+<div class="title">Figure 8. Analyse des besoins utilisateurs</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="pr5.png" alt="pr5">
+</div>
+<div class="title">Figure 9. Analyse des besoins utilisateurs</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="pr6.png" alt="pr6">
+</div>
+<div class="title">Figure 10. Analyse des besoins utilisateurs</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="pr7.png" alt="pr7">
+</div>
+<div class="title">Figure 11. Analyse des besoins utilisateurs</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_diagramme_de_classe">4.4. Diagramme de classe</h3>
+<div class="paragraph">
+<p>Nous souhaitons représenter les données manipulées par le système, ainsi
+que les relations entre ces données.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="plantuml-cd.png" alt="plantuml cd">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Nous parlons pour l&#8217;instant de <em>classe</em>, si vous êtes familié avec
+le langage C vous pouvez parler de <em>structure</em>.
+Pour l&#8217;instant considérons que les 2 sont équivalents.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_concept_de_strong_classe_strong">4.4.1. Concept de <strong>Classe</strong></h4>
+<div class="paragraph">
+<p>Une <strong>classe</strong> est une représentation unique servant à caractériser
+un ensemble d’<strong>objets</strong> jouant un rôle identique et décrits par les mêmes <strong>attributs</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="classe.png" alt="classe">
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/warning.png" alt="Warning">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Une classe n&#8217;est pas un ensemble d&#8217;objets!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Afin de faciliter la lisibilité des diagrammes, il est d&#8217;usage d&#8217;adopter une certaine
+façon de nommer les différents éléments. Ceci permet d&#8217;avoir une homogénéité dans les
+différents diagrammes.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Exemple de convention d’écriture suivante :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1ère lettre d&#8217;une classe toujours en majuscule (la classe <code>Comptes</code> par exemple)</p>
+</li>
+<li>
+<p>mise au singulier des noms</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="pluriels.png" alt="pluriels">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_classes_et_objets">4.4.2. Classes et objets</h4>
+<div class="paragraph">
+<p>En programmation on parle de <code>type</code> et de <code>variable</code>. Même si c&#8217;est un raccourci très rapide
+nous pouvons pour l&#8217;instant faire le parallèle entre les notions de <code>classe</code> et d' <code>objet</code>.</p>
+</div>
+<div class="paragraph">
+<p>On parlera toutefois d'<strong>instance</strong> pour désigner un objet issu d&#8217;une classe.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="object.png" alt="object"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_attributs">4.4.3. Attributs</h4>
+<div class="paragraph">
+<p>Un <strong>attribut</strong> est une propriété représentative d’un objet
+(nom d’une personne, couleur d’une voiture, moyenne d’un étudiant&#8230;).</p>
+</div>
+<div class="paragraph">
+<p>Pour chaque objet d’une classe, un attribut possède une valeur particulière.</p>
+</div>
+<div class="paragraph">
+<p>Exemples :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="attrib.png" alt="attrib">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Nous utiliserons la convention d’écriture suivante pour les attributs :<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1ère lettre en minuscule.</p>
+</li>
+<li>
+<p>pour les noms composés, on mettra en majuscule la première lettre de chaque mot, sauf pour le premier.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les noms des attributs de type booléen seront précédés du préfixe <code>est</code> (<em>is</em> en anglais).</p>
+</div>
+<div class="paragraph">
+<p>Exemples :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>estMajeur</code> vaut <code>VRAI</code> si une personne est majeure et <code>FAUX</code> si elle est mineure</p>
+</li>
+<li>
+<p><code>estCadre</code> vaut <code>VRAI</code> si une personne est cadre et <code>FAUX</code> sinon</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>L&#8217;intérêt de cette convention permet d'écrire directement des instructions facilement
+interprétables, comme :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="java language-java"><span style="color:#080;font-weight:bold">if</span> (estMajeur)
+        ...</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_identifiant">4.4.4. Identifiant</h4>
+<div class="paragraph">
+<p>Un <strong>identifiant</strong> est un attribut particulier d’une classe dont les valeurs représentent
+sans ambiguïté chaque objet de la classe.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="title">Choix d’un identifiant</div>
+<div class="paragraph">
+<p>Il faut prendre un attribut non ambigu (le nom d’une personne ne convient pas) et court (le numéro de sécu est trop long).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="id.png" alt="id">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Convention : Les noms des identifiants commenceront par le préfixe <code>id</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Vous approfondirez (ou avez déjà abordé) cette notion en Base de donnée.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_association">4.4.5. Association</h4>
+<div class="paragraph">
+<p>Une <strong>association</strong> est un ensemble de liens permanents existant entre les objets de deux ou plusieurs classes.
+On dira qu’une association lie plusieurs classes ou que les classes <strong>participent</strong> à l’association.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="title">Exemple</div>
+<div class="paragraph">
+<p>Dans l&#8217;exercice sur l&#8217;Agence de Voyage, une fiche <code>client</code> est liée à une ou plusieurs <code>commandes</code> en cours.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Dimension d’une association :</p>
+</div>
+<div class="paragraph">
+<p>Nombre de classes mises en jeu par l’association<br>
+(binaire : 2, ternaire : 3, n-aire : n)</p>
+</div>
+<div class="paragraph">
+<p>Exemple d’association binaire </p>
+</div>
+<div class="paragraph">
+<p>Soient les classes <code>Fournisseurs</code> et <code>Produits</code>.
+On veut indiquer quels sont les produits susceptibles d’être fournis par chaque fournisseur et quels sont les fournisseurs susceptibles de fournir chaque produit.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="prod-fourn.png" alt="prod fourn" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Nom d’une association :</p>
+</div>
+<div class="paragraph">
+<p>Afin de clarifier les informations, il est important de nommer les associations.<br>
+Il existe trois façons de nommer une association :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>un verbe à l’infinitif (e.g., <code>Fournir</code>)</p>
+</li>
+<li>
+<p>un verbe conjugué avec un sens de lecture : <code>Fournit &gt;</code>  ou  <code>&lt; Est fourni par</code></p>
+</li>
+<li>
+<p>un rôle (placé à une extrémité de l’association)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Un nom d’association commencera par une majuscule comme les noms de classes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Cardinalité :</p>
+</div>
+<div class="paragraph">
+<p>Indique à combien d’objets minimum et maximum de la classe d’en face est lié tout objet de la classe de départ. Elle est représentée par un couple <code>(M..N)</code>. Elle représente le nombre minimum et maximum d&#8217;objets (de la classe de ce côté-ci
+de l&#8217;association) qui peuvent être en association avec un objet donné (de l&#8217;autre côté de l&#8217;association).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Attention, dans une cardinalité <code>M..N</code>, <code>M</code> doit toujours être inférieur ou égal à <code>N</code>.  Exemple : <code>3..10</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Cardinalités classiques :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>*</code> : signifie <code>[0..N]</code> avec <code>N</code> indéterminé. Très utilisé pour les associations multiples optionnelles.</p>
+</li>
+<li>
+<p><code>1..*</code> : signifie <code>[1..N]</code> avec <code>N</code> indéterminé. Très utilisé pour les associations multiples obligatoires.</p>
+</li>
+<li>
+<p><code>1</code> : signifie <code>[1..1]</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_repr_sentation">4.4.6. Représentation</h4>
+<div class="paragraph">
+<p>Représentation des classes</p>
+</div>
+<div class="paragraph">
+<p>Une classe est représentée par un rectangle divisé en plusieurs compartiments. Le compartiment supérieur contient le <strong>nom</strong> de la classe et le compartiment inférieur la liste des <strong>attributs</strong> (l’identifiant est placé en tête de liste).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="exp1.png" alt="exp1">
+</div>
+</div>
+<div class="paragraph">
+<p>Représentation des associations</p>
+</div>
+<div class="paragraph">
+<p>Une association binaire est représentée par un trait reliant deux classes. Le <strong>nom</strong> de l’association est placé à proximité du trait et les <strong>cardinalités</strong> sont placées de part et d’autre.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="exp2.png" alt="exp2">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_classe_association">4.4.7. Classe association</h4>
+<div class="paragraph">
+<p>Certains attributs ne dépendent pas d&#8217;une seule classe, mais de plusieurs.
+Exemple : le prix d&#8217;un produit selon le fournisseur qui le propose.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="class-assoc.png" alt="class assoc" width="200">
+</div>
+</div>
+<div class="paragraph">
+<p>Pour les représenter, ils seront placés dans une <strong>classe-association</strong> reliée au  trait de liaison par un trait en pointillés. Le nom de l&#8217;association sera alors placé dans la classe-association.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="class-assoc.png" alt="class assoc" width="200">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pour_dessiner_rapidement_de_l_uml">4.5. Pour dessiner rapidement de l&#8217;UML</h3>
+<div class="paragraph">
+<p>Les schémas de cette section sont écrits en utilisant le langage <a href="http://plantuml.sourceforge.net/">PlantUML</a>.</p>
+</div>
+<div class="paragraph">
+<p>Par exemple le schéma précédent a été réalisé à partir du code suivant :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>@startuml
+class Produits {
+	idPro
+	designation
+	poids
+}
+class Fournisseurs {
+	idFour
+	raisonSociale
+	adresse
+}
+Produits "0..*" -- "0..*" Fournisseurs : Fournir
+@enduml</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez tester en ligne : <a href="http://www.plantuml.com/plantuml/">http://www.plantuml.com/plantuml/</a> ou encore télécharger le [plugin eclipse] (cf. <a href="#plantumlecl">illustration</a> ci-dessous)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="plantumlecl" class="imageblock">
+<div class="content">
+<img src="plantuml-eclipse.png" alt="plantuml eclipse" width="600" height="600">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exercices_de_r_vision">4.6. Exercices de révision</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Réalisez le diagramme de classes suivant :</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Les étudiants possèdent un numéro d'étudiant (identifiant), un nom, un prénom, une date de naissance. Ils suivent des cours (titre, code du module).</p>
+</li>
+<li>
+<p>Les examens concernent un cours donné. Chaque examen a lien à une certaine date et possède un coefficient.</p>
+</li>
+<li>
+<p>Pour chaque examen un étudiant à une note.</p>
+</li>
+<li>
+<p>Les cours sont enseignés par un enseignant (nom, prénom)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Réalisez le diagramme de classes suivant :</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Un portable possède un clavier</p>
+</li>
+<li>
+<p>Un clavier peut-être de type "azerty" ou "querty"</p>
+</li>
+<li>
+<p>Un clavier possède des touches</p>
+</li>
+<li>
+<p>Un portable a un 0 ou 1 propriétaire qui a lui même un nom et un prénom</p>
+</li>
+<li>
+<p>Un portable a un prix d&#8217;achat et une valeur actuelle (souvent différente)</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deuxi_me_partie_les_incontournables">4.7. Deuxième partie : les incontournables</h3>
+<div class="sect3">
+<h4 id="_les_besoins_clients_j2">4.7.1. Les besoins clients (J2)</h4>
+<div class="paragraph">
+<p>Nous aborderons le diagramme des UC et le diagramme de séquence système.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_le_mod_le_de_donn_es_j3">4.7.2. Le modèle de données (J3)</h4>
+<div class="paragraph">
+<p>Il s&#8217;agit principalement du diagramme de classe.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_les_diagrammes_d_interaction_j4">4.7.3. Les diagrammes d&#8217;interaction (J4)</h4>
+<div class="paragraph">
+<p>Diagramme de séquence et diagramme d&#8217;activité</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_documentation_reverse_engineering_j5">4.7.4. Documentation, reverse engineering (J5)</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_dsl_et_profils_j5_suite">4.7.5. DSL et profils (J5 suite)</h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="_le_diagramme_de_s_quence">4.8. Le Diagramme de Séquence</h3>
+<div class="sect3">
+<h4 id="_g_n_ralit_s">4.8.1. Généralités</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Modélise les interactions entre objets</p>
+</li>
+<li>
+<p>Séquencement dans le temps</p>
+</li>
+<li>
+<p>Échange de messages</p>
+</li>
+<li>
+<p>Spécifie les scénarios des cas d'études</p>
+</li>
+<li>
+<p>Éléments :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>participants</p>
+</li>
+<li>
+<p>lignes de vie</p>
+</li>
+<li>
+<p>barres d&#8217;activation</p>
+</li>
+<li>
+<p>messages</p>
+</li>
+<li>
+<p>blocs (<code>loop</code>,<code>alt</code>,<code>opt</code>,&#8230;)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div id="seq" class="paragraph">
+<div class="title">Diagramme de séquence</div>
+<p><span class="image"><img src="seq1.png" alt="Diagramme de séquence" width="40%"></span>
+<span class="image"><img src="seq2.png" alt="Eléments de notation" width="40%"></span></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/warning.png" alt="Warning">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les lignes de vie représentent des objets et non des classes</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_exemple">4.8.2. Exemple</h4>
+<div id="seqexp" class="paragraph">
+<div class="title">Exemple de diagramme de séquence</div>
+<p><span class="image"><img src="seq3.png" alt="Exemple de diagramme de séquence" width="60%"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_notions_avanc_es">4.8.3. Notions avancées</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Instructions itératives et conditionnelles</p>
+</li>
+<li>
+<p>Mieux vaut utiliser un diagramme d&#8217;activité</p>
+</li>
+<li>
+<p>Cadres d&#8217;interaction</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>loop</code> (boucle)</p>
+</li>
+<li>
+<p><code>alt</code> (alternative)</p>
+</li>
+<li>
+<p><code>opt</code> (optionel)</p>
+</li>
+<li>
+<p><code>par</code> (parallèle)</p>
+</li>
+<li>
+<p><code>region</code> (région critique - un seul thread à la fois)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div id="fowler" class="paragraph">
+<div class="title">Exemple algorithme / diagramme</div>
+<p><span class="image"><img src="fowl1.png" alt="Un algorithme" width="30%"></span>
+<span class="image"><img src="fowl2.png" alt="Sa modélisation" width="60%"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_exemple_de_conceptions">4.8.4. Exemple de conceptions</h4>
+<div id="fowler1" class="paragraph">
+<div class="title">Conception "centralisée"</div>
+<p><span class="image"><img src="fowl3.png" alt="Conception <em>centralisée</em>" width="60%"></span></p>
+</div>
+<div id="fowler2" class="paragraph">
+<div class="title">Conception "objet"</div>
+<p><span class="image"><img src="fowl4.png" alt="Conception <em>objet</em>" width="60%"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_diagramme_de_s_quence_syst_me">4.8.5. Diagramme de séquence système</h4>
+<div class="paragraph">
+<p>Bien que non présent dans UML, il est courant de trouver un diagramme de séquence particulier, le
+<strong>diagramme de séquence système</strong> ou <strong>DSS</strong>, où on ne représente qu&#8217;un seul objet : le système en cours de développement lui-même.</p>
+</div>
+<div id="exp1-dss" class="paragraph">
+<div class="title">Un exemple de DSS</div>
+<p><span class="image"><img src="dssexp1.png" alt="Exemple de DSS" width="40%"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_lien_entre_uc_dss_et_ds">4.8.6. Lien entre UC, DSS et DS</h4>
+<div class="paragraph">
+<p>La décomposition hiérarchique permet de réaliser une description "<em>TOP-DOWN</em>" du système à réaliser.</p>
+</div>
+<div class="paragraph">
+<p>On fait un Diagramme de Séquence Système pour chaque UC (issu du Diagramme d’UC) pour déterminer les échanges d’informations entre l’acteur et le système.</p>
+</div>
+<div class="paragraph">
+<p>Ensuite on fait un Diagramme de Séquence (DS) pour décrire comment les objets composants le système (issus du Diagramme de Classes) collaborent pour réaliser le traitement demandé.</p>
+</div>
+<div id="exp1-uc" class="paragraph">
+<div class="title">Diagramme d&#8217;UC</div>
+<p><span class="image"><img src="ucexp1.png" alt="Diagramme d&#8217;UC" width="30%"></span></p>
+</div>
+<div id="exp1-dss" class="paragraph">
+<div class="title">Le DSS correspondant</div>
+<p><span class="image"><img src="dssexp1.png" alt="Le DSS correspondant" width="30%"></span></p>
+</div>
+<div id="exp1-ds" class="paragraph">
+<div class="title">Le DS correspondant</div>
+<p><span class="image"><img src="dsexp1.png" alt="Le DS correspondant" width="70%"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_le_paradigme_mvc">4.8.7. Le paradigme MVC</h4>
+<div class="paragraph">
+<p>Le paradigme <strong>M</strong>odèle-<strong>V</strong>ue-<strong>C</strong>ontrôleur, ou <strong>MVC</strong> (de l&#8217;anglais <em>Model-View-Controller</em>) est une architecture logicielle qui divise l’application en trois éléments importants (cf. <a href="#mvc">MVC ci-dessous</a>) :</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>le modèle</strong></dt>
+<dd>
+<p>chargé de gérer les élements d&#8217;information (comme la base de donnée)</p>
+</dd>
+<dt class="hdlist1"><strong>les vues</strong></dt>
+<dd>
+<p>interfaces entre l&#8217;application et l&#8217;utilisateur</p>
+</dd>
+<dt class="hdlist1"><strong>les contrôleurs</strong></dt>
+<dd>
+<p>chargés de faire le lien entre vues et modèle.</p>
+</dd>
+</dl>
+</div>
+<div id="mvc" class="imageblock">
+<div class="content">
+<img src="mvc.png" alt="MVC" width="50%"">
+</div>
+<div class="title">Figure 12. Séparation des préoccupations dans le MVC</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="refs">Bibliographie</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a id="gram86"></a>[gram86] Ana Gram. Raisonner pour programmer. Dunod, 1986.</p>
+</li>
+<li>
+<p><a id="HighsmithFowler2001"></a>[HighsmithFowler2001] Jim Highsmith and Martin Fowler. The agile manifesto. Software Development Magazine, 9(8) :29–30, 2001.</p>
+</li>
+<li>
+<p><a id="1030005"></a>[1030005] Kieran Conboy and Brian Fitzgerald. Toward a conceptual framework of agile methods : a study of agility in different disciplines. In WISER ’04 : Proceedings of the 2004 ACM workshop on Interdisciplinary software engineering research, pages 37–44, New York, NY, USA, 2004. ACM.</p>
+</li>
+<li>
+<p><a id="IDM&#8217;12"></a> Ingénierie Dirigée par les Modèles : des concepts a la pratique. Jean-Marc Jézéquel,
+Benoît Combemale, Didier Vojtisek. Ellipses 2012.</p>
+</li>
+<li>
+<p><a id="Roques2007a"></a>[Roques2007a] Les Cahiers du Programmeur, UML2, <a href="http://www.dotnetguru2.org/proques/index.php">Pascal Roques</a> 3ème Edition, Eyrolles, 2007.</p>
+</li>
+<li>
+<p><a id="Roques2007b"></a>[Roques2007b] UML 2 par la pratique, <a href="http://www.dotnetguru2.org/proques/index.php">Pascal Roques</a> 6ème Edition, Eyrolles, 2007.</p>
+</li>
+<li>
+<p><a id="Blanc2006"></a>[Blanc2006] UML pour les développeurs, Xavier Blanc, Eyrolles, 2006.</p>
+</li>
+<li>
+<p><a id="Longepe2006"></a>[Longepe2006] Le projet d&#8217;urbanisation du S.I., C. Longépé, 3ème édition, Dunod, 2006.</p>
+</li>
+<li>
+<p><a id="Gillet2008"></a>[Gillet2008] Management des SI, M. &amp; P. Gillet, Dunod, 2008.</p>
+</li>
+<li>
+<p><a id="Muller"></a>[Muller] Modélisation objet avec UML. {pam} &amp; Nathalie Gaetner, Eyrolles, 2003.</p>
+</li>
+<li>
+<p><a id="RUP"></a>[RUP] <a href="http://fr.wikipedia.org/wiki/Unified_Process">http://fr.wikipedia.org/wiki/Unified_Process</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_glossaire">Glossaire</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="title">Ressources</div>
+<div class="paragraph">
+<p>Les définitions ci-dessous sont regroupées à titre indicatif. Les sources utilisées sont :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://eduscol.education.fr/sigles/">https://eduscol.education.fr/sigles/</a></p>
+</li>
+<li>
+<p>Glossaire du <a href="http://www.sei.cmu.edu/architecture/start/glossary">Software Engineering Institute</a></p>
+</li>
+<li>
+<p><a href="http://www.computer-dictionary-online.org/">IEEE Computer Dictionary Online</a></p>
+</li>
+<li>
+<p><a href="http://fr.wikipedia.org/">Wikipedia</a> –- Version française￼￼</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist glossary">
+<dl>
+<dt><a id="DRY"></a>DRY</dt>
+<dd>
+<p><em><strong>D</strong>on&#8217;t <strong>R</strong>epeat <strong>Y</strong>ourself</em> :</p>
+</dd>
+<dt>IHM</dt>
+<dd>
+<p><strong>I</strong>nterface <strong>H</strong>omme-<strong>M</strong>achine</p>
+</dd>
+<dt>MCF</dt>
+<dd>
+<p><strong>M</strong>odèle <strong>C</strong>onceptuel des <strong>F</strong>lux</p>
+</dd>
+<dt>MCT</dt>
+<dd>
+<p><strong>M</strong>odèle <strong>C</strong>onceptuel des <strong>T</strong>raitements</p>
+</dd>
+<dt>MOA</dt>
+<dd>
+<p><strong>M</strong>aîtrise d’<strong>o</strong>uvr<strong>a</strong>ge (MOA)
+<strong>M</strong>aîtrise d’<strong>oe</strong>uvre (MOE)</p>
+</dd>
+<dt>MOF</dt>
+<dd>
+<p><strong>M</strong>odèle <strong>O</strong>rganisationnel des <strong>F</strong>lux</p>
+</dd>
+<dt>MOT</dt>
+<dd>
+<p><strong>M</strong>odèle <strong>O</strong>rganisationnel des <strong>T</strong>raitements</p>
+</dd>
+<dt>OMG</dt>
+<dd>
+<p><em><strong>O</strong>bject <strong>M</strong>anagement <strong>G</strong>roup</em> : L&#8217;organisme international chargé des principales normes liés à l&#8217;objet (CORBA, UML, etc.).</p>
+</dd>
+<dt>PPN</dt>
+<dd>
+<p><strong>P</strong>rogramme <strong>P</strong>édagogique <strong>N</strong>ational</p>
+</dd>
+<dt>SEF</dt>
+<dd>
+<p><strong>S</strong>chéma d'<strong>E</strong>nchaînement des <strong>F</strong>enêtres</p>
+</dd>
+<dt>SEP</dt>
+<dd>
+<p><strong>S</strong>chéma d'<strong>E</strong>nchaînement des <strong>P</strong>ages</p>
+</dd>
+<dt>SI</dt>
+<dd>
+<p><strong>S</strong>ystème d'<strong>I</strong>nformation</p>
+</dd>
+<dt>SNI</dt>
+<dd>
+<p><strong>S</strong>chéma de <strong>N</strong>avigation d'<strong>I</strong>nterfaces</p>
+</dd>
+<dt>SO</dt>
+<dd>
+<p><strong>S</strong>ystème <strong>O</strong>rganisationnel</p>
+</dd>
+<dt><a id="SysML"></a>SysML</dt>
+<dd>
+<p><em><strong>Sys</strong>tem <strong>M</strong>odeling <strong>L</strong>anguage</em> &#8482; : le langage de modélisation de systèmes maintenu par l&#8217;http://www.omg.org[OMG&#8482;].</p>
+</dd>
+<dt>TRL</dt>
+<dd>
+<p><em><strong>T</strong>echnology <strong>R</strong>eadiness <strong>L</strong>evel</em> : système de mesure employé par des agences gouvernementales américaines et par de nombreuses compagnies (et agences) mondiales afin d'évaluer le niveau de maturité d&#8217;une technologie (cf. <a href="http://fr.wikipedia.org/wiki/Technology_Readiness_Level">Wikipedia</a>).</p>
+</dd>
+<dt>URL</dt>
+<dd>
+<p><em><strong>U</strong>niversal <strong>R</strong>essource <strong>L</strong>ocator</em></p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_about">About&#8230;</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Document réalisé par <a href="mailto:jbruel@gmail.com">Jean-Michel Bruel</a> via  <a href="http://asciidoctor.org/">Asciidoctor</a> (version <code>{asciidoctor-version}</code>) de <em>Dan Allen</em>, lui même basé sur <a href="http://www.methods.co.nz/asciidoc">AsciiDoc</a>.
+Pour l&#8217;instant ce document est libre d&#8217;utilisation et géré par la <em>Licence Creative Commons</em>.
+<span class="image"><a class="image" href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="images/icons/88x31.png" alt="Licence Creative Commons"></a></span>
+<a href="http://creativecommons.org/licenses/by-sa/3.0/">licence Creative Commons Paternité - Partage à l&#39;Identique 3.0 non transposé</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0<br>
+Last updated 2016-03-14 14:09:37 PDT
+</div>
+</div>
+</body>
+</html>
