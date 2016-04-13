@@ -1,11 +1,14 @@
-= My First Experience with the Dangers of Documentation
+= Qu'est ce que l'intégration continue?
+:library: Asciidoctor
+:idprefix: 
+:numbered:
+:imagesdir: images
+:toc: manual
+:css-signature: demo
 
-In my world, we don't have to worry about mutant, script-injecting warlocks.
-No.
-We have something far worse.
-We're plagued by Wolpertingers.
+:toc-placement: preamble
 
-== Origins
+L'intégration continue est un ensemble de pratiques utilisées en génie logiciel consistant à vérifier à chaque modification de code source que le résultat des modifications ne produit pas de régression dans l'application développée.
 
-You may not be familiar with these http://en.wikipedia.org/wiki/Wolpertinger[ravenous beasts], but, trust me, they'll eat your shorts and suck the loops from your code.
+TIP: Share the URL with others to collaborate!
 
