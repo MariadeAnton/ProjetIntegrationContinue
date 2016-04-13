@@ -1,3 +1,14 @@
-=Integration continue avec travis-ci
+= Intégration continue avec Travis-ci
 
-==Qu'est ce que Travis
+:library: Asciidoctor
+:idprefix: 
+:numbered:
+:imagesdir: images
+:toc: manual
+:stylesdir: css
+:toc-placement: preamble
+
+
+image::logo.jpg[]  
+
+== Qu'est ce que Travis?
