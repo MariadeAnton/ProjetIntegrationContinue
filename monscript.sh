@@ -15,9 +15,7 @@ git clone --quiet https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContin
 
 cd gh-pages
 
-mkdir dossierTravis
 
-sudo gedit index.html
 
 #copie de la nouvelle version
 cp  -Rf $HOME/html/faq.html ./index.html
