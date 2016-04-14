@@ -15,7 +15,7 @@ git config --global user.name "Dorlige"
 #git clone --quiet https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git doc > /dev/null
 
 git clone https://github.com/Dorlige/ProjetIntegrationContinue.git gh-pages > /dev/null
-Username: 66b54f59bdcc875aa4abda9c181cfda8591da717
+
 
 
 
@@ -30,7 +30,7 @@ cp  -Rf $HOME/html/faq.html ./index.html
  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages "
   echo -e "On fait un push sur master\n"
   git push -fq origin master  > /dev/null
-  Username: 66b54f59bdcc875aa4abda9c181cfda8591da717
+
  
  #git push -fq origin doc > /dev/null
  
