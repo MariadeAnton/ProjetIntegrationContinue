@@ -25,10 +25,10 @@ cp  -Rf $HOME/html/* ./$TRAVIS_BRANCH/
  #add, commit and push files
  git add -f .
  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages "
-# git push -fq origin gh-pages > /dev/null
+git push -fq origin gh-pages > /dev/null
  #git push -fq origin master > /dev/null
 
- git push -f -q https://${GH_TOKEN}@github.com/${GH_REF}   master > /dev/null
+# git push -f -q https://${GH_TOKEN}@github.com/${GH_REF}   master > /dev/null
 
 
 
