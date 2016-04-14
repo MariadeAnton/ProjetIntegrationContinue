@@ -12,7 +12,7 @@ git config --global user.name "Dorlige"
 #clone branch gh-pages
 #git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/  gh-pages > /dev/null
  echo -e "On fait un clone\n"
-#git clone --quiet https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git gh-pages > /dev/null
+git clone --quiet https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git gh-pages > /dev/null
 
 
 #copie de la nouvelle version
