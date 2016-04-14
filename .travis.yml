@@ -8,7 +8,7 @@ script:
 - rake test
 env:
   global:
-  - GH_REF: Dorlig/ProjetIntegrationContinue.git
+  - GH_REF: Dorlige/ProjetIntegrationContinue.git
   - secure:
   after_success:
 - bash monscript.sh
