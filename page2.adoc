@@ -85,7 +85,7 @@ link:integrationContinue.html[Formation à Travis]
 
 ---                               
                                   
-
-link:faq.adoc[PREVIOUS PAGE]    [{right}] link:page3.adoc[NEXT PAGE]
+                                 [{right}]
+link:faq.adoc[PREVIOUS PAGE]     link:page3.adoc[NEXT PAGE]
 
 ---
