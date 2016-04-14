@@ -14,9 +14,6 @@ git config --global user.name "Dorlige"
  echo -e "On fait un clone\n"
 #git clone --quiet https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git gh-pages > /dev/null
 
-cd gh-pages
-
-
 
 #copie de la nouvelle version
 cp  -Rf $HOME/html/faq.html ./index.html
