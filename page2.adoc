@@ -86,6 +86,6 @@ link:integrationContinue.html[Formation à Travis]
 ---                               
                                   
                                 
-link:faq.adoc[<<== PREVIOUS ]                            link:page3.adoc[NEXT ==>>]
+link:faq.adoc[<<== PREVIOUS ]                          =>  link:page3.adoc[NEXT ==>>]
 
 ---
