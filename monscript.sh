@@ -14,12 +14,12 @@ git config --global user.name "Dorlige"
  echo -e "On fait un clone\n"
 #git clone --quiet https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git doc > /dev/null
 
-git clone https//Dorlige:66b54f59bdcc875aa4abda9c181cfda8591da717@github.com/Dorlige/ProjetIntegrationContinue.git --branch=gh-pages gh-pages
+git clone https//${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git --branch=gh-pages gh-pages
 
 
 cd gh-pages
 git remote rm origin
-git remote add origin https//Dorlige:66b54f59bdcc875aa4abda9c181cfda8591da717@github.com/Dorlige/ProjetIntegrationContinue.git
+git remote add origin https//${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git
 
 
 #copie de la nouvelle version
@@ -30,7 +30,7 @@ cp  -Rf $HOME/html/faq.html ./index.html
 
  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages "
   echo -e "On fait un push sur master\n"
-  git push -fq origin gh-pages > /dev/null
+  git push -fq origin gh-pages 
  #git push -fq origin doc > /dev/null
  
 
