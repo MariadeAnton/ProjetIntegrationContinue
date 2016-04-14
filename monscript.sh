@@ -15,10 +15,12 @@ git clone --quiet https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContin
 
 cd gh-pages
 
-mkdir index.html
+mkdir dossierTravis
+
+mkdir $TRAVIS_BRANCH
 
 #copie de la nouvelle version
-cp  -Rf $HOME/html/faq.html ./index.html
+cp  -Rf $HOME/html/* ./$TRAVIS_BRANCH/
 
  #add, commit and push files
  git add -f .
