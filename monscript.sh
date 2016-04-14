@@ -13,13 +13,13 @@ git config --global user.name "Dorlige"
  echo -e "On fait un clone\n"
 #git clone --quiet https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git doc > /dev/null
 
-git clone https://Dorlige/d06121adf16ebcf335f924a4ba1f4094bb84fc09@github.com/Dorlige/ProjetIntegrationContinue.git --branch=gh-pages gh-pages
+git clone https://Dorlige:d06121adf16ebcf335f924a4ba1f4094bb84fc09@github.com/Dorlige/ProjetIntegrationContinue.git --branch=gh-pages gh-pages
 
 # git clone --depth=50 --branch=master https://github.com/Dorlige/ProjetIntegrationContinue.git 
 
 cd gh-pages
  git remote rm origin
-  git remote add origin https://Dorlige/d06121adf16ebcf335f924a4ba1f4094bb84fc09@github.com/Dorlige/ProjetIntegrationContinue.git
+  git remote add origin https://Dorlige:d06121adf16ebcf335f924a4ba1f4094bb84fc09@github.com/Dorlige/ProjetIntegrationContinue.git
 
 #copie de la nouvelle version
 cp  -Rf $HOME/html/faq.html ./index.html
