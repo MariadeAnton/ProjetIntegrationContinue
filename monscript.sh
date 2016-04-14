@@ -15,8 +15,7 @@ git clone --quiet https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContin
 
 cd gh-pages
 
-#suppresion de l'ancienne' version 
-git rm -rf ./index.html
+mkdir index.html
 
 #copie de la nouvelle version
 cp  -Rf $HOME/html/faq.html ./index.html
