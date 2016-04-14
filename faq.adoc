@@ -38,7 +38,7 @@ image::github2.png[]
 
 C’est un réseau social qui change drastiquement notre façon de travailler. Ayant démarré sous forme de plateforme collaborative pour développeurs, GitHub est désormais le plus grand espace de stockage de travaux collaboratifs dans le monde. Que vous soyez intéressé(e) pour participer à ce cerveau global ou tout simplement pour partir à la recherche de cet énorme réservoir de connaissances, vous vous devez d’y être.
 
-https://www.youtube.com/watch?v=V6Zo68uQPqE[Vidéo pour la formation git et github]
+
 
 
 ---
