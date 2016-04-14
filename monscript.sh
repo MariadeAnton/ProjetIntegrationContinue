@@ -28,7 +28,7 @@ cp  -Rf $HOME/html/faq.html ./index.html
  
  echo -e "On fait un push sur master\n"
 
- git push -f -q https://${GH_TOKEN}@github.com/${GH_REF}   master > /dev/null
+ git push -f -q https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git  master > /dev/null
 
 
 
