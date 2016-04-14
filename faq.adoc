@@ -1,42 +1,10 @@
-= Intégration continue avec Travis-ci
+= My First Experience with the Dangers of Documentation
 
-:library: Asciidoctor
-:idprefix: 
-:numbered:
-:imagesdir: images
-:toc: manual
-:stylesdir: css
-:toc-placement: preamble
+In my world, we don't have to worry about mutant, script-injecting warlocks.
+No.
+We have something far worse.
+We're plagued by Wolpertingers.
 
+== Origins
 
- 
-== Qu'est ce que l'intégration continue?
-
-L'intégration continue est un ensemble de pratiques utilisées en génie logiciel consistant à vérifier à chaque modification de code source que le résultat des modifications ne produit pas de régression dans l'application développée.
-
-
-
-L’idée de l’intégration continue est donc d’utiliser un serveur d’intégration continue (comme Hudson, CruiseControl, Continuum..) qui à chaque « build » local va réaliser un « build » global allant de la récupération des dépendances à la documentation comme l’illustre la figure ci-dessus. 
-
-
-== Formation à Git
-
-Git est un logiciel de contrôle de version, ce qui signifie qu’il gère les modifications d’un projet sans écraser n’importe quelle partie du projet.
-
-
-
-Git est un logiciel de gestion de versions décentralisé. Il est conçu pour être efficace tant avec les petits projets, que les plus importants. Git a spécialement été créé pour le développement du noyau linux. Ce projet a débuté en 2005, Linus Torvalds voulait créer une alternative au logiciel propriétaire BitKeeper. Depuis, Git a beaucoup évolué et est utilisé par de nombreux projets. Contrairement à des outils comme svn ou cvs, Git fonctionne de façon décentralisée, c'est-à-dire que le développement ne se fait pas sur un serveur centralisé, mais chaque personne peut développer sur son propre dépôt. 
-
-
-== Formation à Github
-
-GitHub est plus qu’un simple outil de programmation.
-
-
-
-C’est un réseau social qui change drastiquement notre façon de travailler. Ayant démarré sous forme de plateforme collaborative pour développeurs, GitHub est désormais le plus grand espace de stockage de travaux collaboratifs dans le monde. Que vous soyez intéressé(e) pour participer à ce cerveau global ou tout simplement pour partir à la recherche de cet énorme réservoir de connaissances, vous vous devez d’y être.
-
-
-
-
-
+You may not be familiar with these http://en.wikipedia.org/wiki/Wolpertinger[ravenous beasts], but, trust me, they'll eat your shorts and suck the loops from your code.
