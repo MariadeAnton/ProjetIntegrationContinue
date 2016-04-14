@@ -7,7 +7,7 @@ cd $HOME
 
 git config --global user.email "saindy.nkadi@yahoo.fr"
 git config --global user.name "Dorlige"
-git config --global push.default simple
+
 
 #clone branch gh-pages
 #git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/${GH_REF}  gh-pages > /dev/null
