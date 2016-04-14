@@ -18,9 +18,6 @@ git clone https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git  
 
 
 cd gh-pages
-git remote rm origin
-git remote add origin https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git
-
 
 #copie de la nouvelle version
 cp  -Rf $HOME/html/faq.html ./index.html
@@ -30,7 +27,7 @@ cp  -Rf $HOME/html/faq.html ./index.html
 
  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages "
   echo -e "On fait un push sur master\n"
-  git push -fq origin gh-pages  > /dev/null
+  git push -fq origin master  > /dev/null
  #git push -fq origin doc > /dev/null
  
 
