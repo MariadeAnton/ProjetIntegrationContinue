@@ -6,6 +6,7 @@ script:
 - asciidoctor -a icons -a linkcss! -a numbered faq.adoc -o html/faq.html
 - rake check_links
 - rake test
+sudo: false
 env:
   global:
   - GH_REF: Dorlige/ProjetIntegrationContinue.git
