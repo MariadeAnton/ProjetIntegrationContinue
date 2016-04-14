@@ -22,14 +22,14 @@ cp  -Rf $HOME/html/faq.html ./index.html
  #add, commit and push files
  git add -f index.html
 
- git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages "
+ git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to doc "
   echo -e "On fait un push sur master\n"
 #git push -fq origin gh-pages > /dev/null
- git push -fq origin master > /dev/null
+ #git push -fq origin doc > /dev/null
  
 
 
- #git push --quiet https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git  gh-pages> /dev/null
+ git push --quiet https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git  master > /dev/null
 
 
 
