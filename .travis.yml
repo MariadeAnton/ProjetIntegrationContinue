@@ -3,12 +3,15 @@ install:
 - gem install coderay
 - gem install link-checker
 script:
+#- asciidoctor faq.adoc -o html/faq.html
 - asciidoctor -a icons -a linkcss! -a numbered faq.adoc -o html/faq.html
 - rake check_links
 - rake test
+
+
 env:
   global:
-  - GH_REF: Dorlige/ProjetIntegrationContinue.git
-  - secure: s5B6G/IY1AKS9y7oSOZk1dA/M0zake+EAwGdud6ClI94Og+UCBqDMn7GiuvRHGo3L2g7EEAelBZOFTlJtno4DhrUBAm3uMiAWnVA76S4uzqBDhDvkG1Tt1RuoCERERoy994cZG8k4nqFuRmNsjpxoM/wqlstA+M5cgACQyMr/s1hWVMLtp/JxfezJI5robwLMZ/NSISUsIz9Glp7a/0Y3iZ9mcYfA3sjN/XPup0JK1qW+9G6GMtkApxbNj3HcGJt2lLX1xl41mEE3Eo+wMndTFBVdMMs0vuoTPgXDuSnGHcLKIZ/uNj1pRppPujvK2UwGGK0TFFEhdIhW9IoYF+4x0thUeHYP9nodDoXn+rm+G5/c+4J0pXIb0IxbpTBj0su9iKBxaSgaKUzAMI8yXm0c4VKUejVpBr5KlyjceGeGrh4QSLL+l4Lmh9Asoxe5SUgIeBs8osXH58PLXVNWBiRE5OEmV3Seh9sSkAjZqHtfB/nayqx1bI+U9UGDq2GfMcMUHBx3Im9FTHsXnoMu9FqEnsJGn+F0vmFNpqQVK2I3QSwrYf/xXMEfJ3Bi/96gKfPTwiEMQ2has1BfMPxt0G/D5lCeqeE3aHMDqkE0GcNYG+ol7NTAvnsuk/kJPF/MMU4KCTKBGeUj84/Fi9dhevA41tvcA2AbQTAdb7+Q1Vd7pw=
-  after_success:
+    - GH_REF: Dorlige/ProjetIntegrationContinue.git
+    - secure: kZVP0sLlkL6TVR8CK7YGpw+gPMyE1+jUrhxbj0oNdOH6rIZ26zJxkWubH8ezizl/qi++b45QPczhKSnfXxGe7nZXGC/C9M+Ts+DFdnqoR2gsOo9wYv91V30Sy3ALwHWLkTuAPRdNKqrWMPEMzSFrfll1mXgp8PgVfycben/J+qOP6bCIuv0VPxzVgrztgtAY+jF1uY7p3qdvsuqqLVQUwGgV7ko5vg5yheOj0FHJWe/hIRY00m5UkQk2cXWN3WbqB2iyPSNbRFT6jfDpvcYBzx/h8DfsbJLdpPSlGQYbeCtqzP1UWAwUC/tR+zO9e4HgSfkc35iQvripB/+Op6KVudwrkxKmUDpjqZRBSqjHMo4Qkd/CLkFTx59eUeMcz7nWUkPXdd2wpjvOoY+BL/nfHALHaSnUxkcIXh55ESMebjwkp0n4VgiHAvMrcR01c51XKknBjTS9pFkfH0YuXpGc1Dle6ZTdyUbBDJnXAC608vAcAGllrXHUCgR38vlaKZn31qMU73SyiGK1f6x6otmbLsMP5VKb0xOxfS0lpSZeRRNbA4nxc9+UVTi7wllftBsN6Ubwpsx9U3JCLvA95KQV7gfN5Ppg6QhdHb6J29Wr6fCJpzmwSNRxwKMGygN6sh32ff67TKT5GTB/LMKZNywMMwyPys5GrXbn9UE1qWetoeQ=
+after_success: 
 - bash monscript.sh
