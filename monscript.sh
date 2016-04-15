@@ -21,7 +21,7 @@ cd gh-pages
  git add -f .
  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages "
  
-  #git push -fq origin gh-pages  > /dev/null
-  git push -fq https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git gh-pages > /dev/null
+  git push -fq origin gh-pages  
+  #git push -fq https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git master > /dev/null
  echo -e "Deploy completed\n"
  #fi
