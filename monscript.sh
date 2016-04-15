@@ -18,7 +18,6 @@ cd gh-pages
  
  #git checkout gh-pages
 
- COMMIT_IGNORE_BUILD="autocommiting new file [ci skip]"
  
  git add -f .
  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages "
