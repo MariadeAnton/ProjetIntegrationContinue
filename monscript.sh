@@ -14,7 +14,7 @@ cd gh-pages
  git remote rm origin
  git remote add origin https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git
  
- cp $HOME/html/*
+ cp $HOME/html/* ./
  
  git add -f .
  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages "
