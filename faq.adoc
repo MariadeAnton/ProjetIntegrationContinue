@@ -41,9 +41,11 @@ C’est un réseau social qui change drastiquement notre façon de travailler. A
 https://www.youtube.com/watch?v=V6Zo68uQPqE[Vidéo pour la formation git et github]
 
 
----
+****
+|====
 
-link:page2.html[NEXT PAGE]
+|  |  |  |  |  | link:page2.adoc[NEXT PAGE]
 
---- 
+|====
+****
 
