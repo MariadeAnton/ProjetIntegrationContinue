@@ -20,7 +20,7 @@ cd gh-pages
 
  
  git add -f .
- git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages "
+ git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages [ci skip]"
  
  git checkout gh-pages
  
