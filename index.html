@@ -432,155 +432,65 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="qu_est_ce_que_travis">1. Qu&#8217;est ce que Travis?</h2>
+<h2 id="qu_est_ce_que_l_intégration_continue">1. Qu&#8217;est ce que l&#8217;intégration continue?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Lorsque vous visitez des projets sur GitHub, vous avez certainement déjà apperçu des badges dans le README comme « build passing ». Il s’agit d’un service proposé par
-Travis-CI. Travis CI est un logiciel libre et un service en ligne utilisé pour compiler, tester et déployer le code source des logiciels développés, notamment en lien avec le
-service d&#8217;hébergement du code source GitHub.</p>
+<p>L&#8217;intégration continue est un ensemble de pratiques utilisées en génie logiciel consistant à vérifier à chaque modification de code source que le résultat des modifications ne produit pas de régression dans l&#8217;application développée.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/travis-ci-process.png" alt="travis ci process">
+<img src="images/Integration-continue.jpg" alt="Integration continue">
 </div>
+</div>
+<div class="paragraph">
+<p>L’idée de l’intégration continue est donc d’utiliser un serveur d’intégration continue (comme Hudson, CruiseControl, Continuum..) qui à chaque « build » local va réaliser un « build » global allant de la récupération des dépendances à la documentation comme l’illustre la figure ci-dessus.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://fr.wikipedia.org/wiki/Int%C3%A9gration_continue">WIKIPÉDIA INTÉGRATION CONTINUE</a></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="configuration_de_travis_pour_l_intégration_continue">2. Configuration de Travis pour l&#8217;intégration continue</h2>
+<h2 id="formation_à_git">2. Formation à Git</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Se connecter sur Travis avec les identifiants de Github.</strong></p>
-</li>
-</ul>
-</div>
 <div class="paragraph">
-<p>Il est possible de se connecter sur Travis CI en passant par le site Github. Pour cela, il suffit de se connecter sur Github avec ses identifiants et dans une autre fenêtre,
-ouvrir Travis CI.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Configurer les dépôts à "intégrer" de manière continue.</strong></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>En se connectant sur Travis avec les identifiants de GitHub, les projets ou dépôts se trouvant dans GitHub figurent aussi dans Travis. Pour les configurer à intégrer de
-manière continue, il suffit de cliquer sur l&#8217;icône " +" qui se trouve près de l&#8217;expression "My repositories". Une fois cliqué, dans la page qui apparait, mettre le dépôt ou
-projet voulu à valider.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Ajouter un fichier .travis.yml à la racine du dépôt.</strong></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Il faut penser à l&#8217;ajouter avec git add.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Génération de la machine virtuelle.</strong></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Lors du git push (après un git commit bien sûr), Travis va générer une machine virtuelle qui va exécuter le script et indiquer un succès ( passing.svg ) si tout c’est bien
-passé.</p>
+<p>Git est un logiciel de contrôle de version, ce qui signifie qu’il gère les modifications d’un projet sans écraser n’importe quelle partie du projet.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/configTravis.png" alt="configTravis">
+<img src="images/git.jpg" alt="git">
 </div>
+</div>
+<div class="paragraph">
+<p>Git est un logiciel de gestion de versions décentralisé. Il est conçu pour être efficace tant avec les petits projets, que les plus importants. Git a spécialement été créé pour le développement du noyau linux. Ce projet a débuté en 2005, Linus Torvalds voulait créer une alternative au logiciel propriétaire BitKeeper. Depuis, Git a beaucoup évolué et est utilisé par de nombreux projets. Contrairement à des outils comme svn ou cvs, Git fonctionne de façon décentralisée, c&#8217;est-à-dire que le développement ne se fait pas sur un serveur centralisé, mais chaque personne peut développer sur son propre dépôt.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://fr.wikipedia.org/wiki/Git">LIEN WIKIPÉDIA</a></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="connecter_github_et_travis">3. Connecter Github et Travis</h2>
+<h2 id="formation_à_github">3. Formation à Github</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Pour ne pas avoir à préciser les mots de passe en clair dans vos scripts, il est possible d’indiquer les éléments de connexions de manière crypté. Ainsi il faut :</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Associer un token à votre dépôt sous Github</strong>(<a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/">explication ici</a>)</p>
-</li>
-<li>
-<p><strong>Installer travis</strong></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>gem install travis</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Crypter (et ajouter au fichier .travis.yml en même temps) votre token</strong></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>travis encrypt MY_SECRET_ENV=super_secret --add env.matrix</strong></p>
-</div>
-<div class="paragraph">
-<p>Il est possible de valider la syntaxe du fichier .travis.yml en installant un utilitaire :</p>
-</div>
-<div class="paragraph">
-<p><strong>gem install travis-lint</strong>
-<strong>travis-lint</strong></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="quelques_exemples_de_fichiers">4. Quelques exemples de fichiers</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="fichier_travis">4.1. Fichier Travis</h3>
-<div class="paragraph">
-<p>Voici à quoi ressemble un fichier .travis.yml.</p>
+<p>GitHub est plus qu’un simple outil de programmation.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/f1travis.png" alt="f1travis">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/f2travis.png" alt="f2travis">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="fichier_de_script_lancé_par_travis">4.2. Fichier de script lancé par Travis</h3>
-<div class="paragraph">
-<p>C&#8217;est le fichier update-doc.sh.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/fi3.png" alt="fi3">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/f4.png" alt="f4">
+<img src="images/github2.png" alt="github2">
 </div>
 </div>
 <div class="paragraph">
-<p><a href="integrationContinue.html">Formation à Travis</a></p>
+<p>C’est un réseau social qui change drastiquement notre façon de travailler. Ayant démarré sous forme de plateforme collaborative pour développeurs, GitHub est désormais le plus grand espace de stockage de travaux collaboratifs dans le monde. Que vous soyez intéressé(e) pour participer à ce cerveau global ou tout simplement pour partir à la recherche de cet énorme réservoir de connaissances, vous vous devez d’y être.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.youtube.com/watch?v=V6Zo68uQPqE">Vidéo pour la formation git et github</a></p>
 </div>
 <hr>
 <div class="paragraph">
-<p><a href="index.html">&lt;&#8656;PREVIOUS </a>   <a href="page3.html">NEXT&#8658;&gt;</a></p>
+<p><a href="page2.html">NEXT PAGE</a></p>
 </div>
 <hr>
-</div>
 </div>
 </div>
 </div>
