@@ -16,7 +16,7 @@ cd gh-pages
  
  cp $HOME/html/* ./
  
- git checkout gh-pages
+ #git checkout gh-pages
  
  git add -f .
  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages "
