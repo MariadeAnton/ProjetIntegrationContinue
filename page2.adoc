@@ -86,6 +86,6 @@ link:integrationContinue.html[Formation à Travis]
 ---                               
                                   
                                 
-link:index.html[<<=PREVIOUS ]   link:index3.html[NEXT=>>]
+link:index.html[<<=PREVIOUS ]   link:page3.html[NEXT=>>]
 
 ---
