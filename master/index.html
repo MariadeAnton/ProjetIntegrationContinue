@@ -432,98 +432,65 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="déploiement_sur_github_avec_travis">1. Déploiement sur Github avec Travis</h2>
+<h2 id="qu_est_ce_que_l_intégration_continue">1. Qu&#8217;est ce que l&#8217;intégration continue?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Utiliser Travis-ci pour générer des pages Html à partir des fichier .adoc, et les pousser vers les pages Github.</p>
-</div>
-<div class="sect2">
-<h3 id="pré_requis">1.1. Pré-requis</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Activation du Travis-ci pour le projet Github</p>
-</li>
-<li>
-<p>Création d&#8217;une branche gh-pages sur le dépôt Github</p>
-</li>
-<li>
-<p>création du token d&#8217;accès pour pouvoir publier le Html</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="token_d_acces_et_travis_yml">1.2. Token d’acces et .travis.yml</h3>
-<div class="paragraph">
-<p>Après avoir récupéré le token d’accès on va le crypter pour que Travis puisse l’utiliser :</p>
-</div>
-<div class="paragraph">
-<p><strong>travis encrypt -r kacimimoghite/testHtmlGenerator GH_TOKEN=[le token d accès]</strong></p>
-</div>
-<div class="paragraph">
-<p>Après avoir récupéré ce token crypté, on l&#8217;ajoute au fichier travis.yml et on installe Asccidoctor pour convertir le .adoc en html, install:</p>
-</div>
-<div class="paragraph">
-<p><strong>- gem install asciidoctor</strong>
-<strong>script:</strong>
-<strong>- asciidoctor faq.adoc -o html/faq.html</strong>
-<strong>env:</strong>
-<strong>global:</strong>
-<strong>- GH_REF: kacimimoghite/testHtmlGenerator.git</strong>
-<strong>- secure:</strong>
-<strong>after_success:</strong>
-<strong>- bash monscript.sh</strong></p>
-</div>
-<div class="paragraph">
-<p>Pour la partie after success on utilise un script qui récupère le projet, copie le html avant de l’envoyer vers GitHub.</p>
-</div>
-<div class="paragraph">
-<p><strong>#!/bin/bash</strong>
-<strong>cp -R html $HOME/html</strong>
-<strong>#configuration</strong>
-<strong>cd $HOME</strong>
-<strong>git config --global user.email "<a href="mailto:moghitkacimi@gmail.com">moghitkacimi@gmail.com</a>"</strong>
-<strong>git config --global user.name "kacimimoghite"</strong>
-<strong>#clone branch gh-pages</strong>
-<strong>git clone --quiet --branch=gh-pages <a href="https://${GH_TOKEN}@github.com/${GH_REF}" class="bare">https://${GH_TOKEN}@github.com/${GH_REF}</a> gh-pages &gt; /dev/null</strong>
-<strong>cd gh-pages</strong>
-<strong>ls</strong>
-<strong>cp $HOME/html/faq.html ./index.html</strong>
-<strong>git add -f .</strong>
-<strong>git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages "</strong>
-<strong>git push -fq origin gh-pages &gt; /dev/null</strong>
-<strong>n echo -e "Deploy completed\n"</strong>
-<strong>#fi</strong></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="résultat_sur_travis_ci">1.3. Résultat sur Travis-CI</h3>
-<div class="paragraph">
-<p>Sur Travis la génération du html et le deployement sur github passent avec succès.</p>
+<p>L&#8217;intégration continue est un ensemble de pratiques utilisées en génie logiciel consistant à vérifier à chaque modification de code source que le résultat des modifications ne produit pas de régression dans l&#8217;application développée.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/f7.png" alt="f7">
+<img src="images/Integration-continue.jpg" alt="Integration continue">
+</div>
+</div>
+<div class="paragraph">
+<p>L’idée de l’intégration continue est donc d’utiliser un serveur d’intégration continue (comme Hudson, CruiseControl, Continuum..) qui à chaque « build » local va réaliser un « build » global allant de la récupération des dépendances à la documentation comme l’illustre la figure ci-dessus.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://fr.wikipedia.org/wiki/Int%C3%A9gration_continue">WIKIPÉDIA INTÉGRATION CONTINUE</a></p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="résultat_sur_github_pages">1.4. Résultat sur GitHub pages</h3>
+<div class="sect1">
+<h2 id="formation_à_git">2. Formation à Git</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Git est un logiciel de contrôle de version, ce qui signifie qu’il gère les modifications d’un projet sans écraser n’importe quelle partie du projet.</p>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/f6.png" alt="f6">
+<img src="images/git.jpg" alt="git">
 </div>
 </div>
 <div class="paragraph">
-<p><a href="deploiement-sur-github.pdf">Article sur le déploiement</a></p>
+<p>Git est un logiciel de gestion de versions décentralisé. Il est conçu pour être efficace tant avec les petits projets, que les plus importants. Git a spécialement été créé pour le développement du noyau linux. Ce projet a débuté en 2005, Linus Torvalds voulait créer une alternative au logiciel propriétaire BitKeeper. Depuis, Git a beaucoup évolué et est utilisé par de nombreux projets. Contrairement à des outils comme svn ou cvs, Git fonctionne de façon décentralisée, c&#8217;est-à-dire que le développement ne se fait pas sur un serveur centralisé, mais chaque personne peut développer sur son propre dépôt.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://fr.wikipedia.org/wiki/Git">LIEN WIKIPÉDIA</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="formation_à_github">3. Formation à Github</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>GitHub est plus qu’un simple outil de programmation.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/github2.png" alt="github2">
+</div>
+</div>
+<div class="paragraph">
+<p>C’est un réseau social qui change drastiquement notre façon de travailler. Ayant démarré sous forme de plateforme collaborative pour développeurs, GitHub est désormais le plus grand espace de stockage de travaux collaboratifs dans le monde. Que vous soyez intéressé(e) pour participer à ce cerveau global ou tout simplement pour partir à la recherche de cet énorme réservoir de connaissances, vous vous devez d’y être.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.youtube.com/watch?v=V6Zo68uQPqE">Vidéo pour la formation git et github</a></p>
 </div>
 <hr>
 <div class="paragraph">
-<p><a href="index2.html">PREVIOUS PAGE</a></p>
+<p><a href="index2.html">NEXT PAGE</a></p>
 </div>
 <hr>
-</div>
 </div>
 </div>
 </div>
