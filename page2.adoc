@@ -85,8 +85,6 @@ link:integrationContinue.html[Formation à Travis]
 
 ****                              
 |====                                  
-                                
 |  link:index.html[<<=PREVIOUS ]  |  |  |  |  |  |   link:page3.html[NEXT=>>] |
-
 |====
 ****
