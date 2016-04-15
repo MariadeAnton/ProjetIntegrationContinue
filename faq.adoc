@@ -43,9 +43,7 @@ https://www.youtube.com/watch?v=V6Zo68uQPqE[Vidéo pour la formation git et gith
 
 ****
 |====
-
-|  |  |  |  |  | link:page2.adoc[NEXT PAGE]
-
+|  |  |  |  |  | link:page2.html[NEXT PAGE]
 |====
 ****
 
