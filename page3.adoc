@@ -78,6 +78,6 @@ link:deploiement-sur-github.pdf[Article sur le déploiement]
 
 ---
 
-link:page2.html[PREVIOUS PAGE]  
+link:index2.html[PREVIOUS PAGE]  
  
 ---
