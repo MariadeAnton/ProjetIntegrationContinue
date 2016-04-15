@@ -14,9 +14,8 @@ cd gh-pages
  git remote rm origin
  git remote add origin https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git
  
- mkdir $TRAVIS_BRANCH
  
-cp  -Rf $HOME/html/* ./$TRAVIS_BRANCH
+cp  -Rf $HOME/html/* .
 
 
  git add -f .
