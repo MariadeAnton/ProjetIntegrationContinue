@@ -13,10 +13,11 @@ git clone --quiet https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContin
 cd gh-pages
  git remote rm origin
  git remote add origin https://${GH_TOKEN}@github.com/Dorlige/ProjetIntegrationContinue.git
+ 
+ mkdir $TRAVIS_BRANCH
+ 
+cp  -Rf $HOME/html/* ./$TRAVIS_BRANCH
 
-cp  -Rf $HOME/html/faq.html ./index.html
-cp -Rf  $HOME/html/page2.html ./index2.html
-cp -Rf  $HOME/html/page3.html ./index3.html
 
  git add -f .
  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages "
